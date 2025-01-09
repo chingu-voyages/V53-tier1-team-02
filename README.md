@@ -36,6 +36,7 @@ coding!
 
 - Noah: [GitHub](https://github.com/mrcordova)
 - Bryan Hoyem: [GitHub](https://github.com/bhoyem) / [LinkedIn](https://linkedin.com/in/bryanhoyem)
+- Zoheb Tahir (Developer): [GitHub](https://github.com/ZohebTahir) 
 
   ...
 
