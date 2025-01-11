@@ -36,7 +36,8 @@ coding!
 
 - Noah: [GitHub](https://github.com/mrcordova)
 
-- Zoheb Tahir: [GitHub](https://github.com/ZohebTahir)  
+- Zoheb Tahir: [GitHub](https://github.com/ZohebTahir)
+- Jessica Hackett: [LinkedIn](https://www.linkedin.com/in/jessica-hackett-6725a4325/?trk=opento_sprofile_topcard)
 
 - Bryan Hoyem: [GitHub](https://github.com/bhoyem) / [LinkedIn](https://linkedin.com/in/bryanhoyem)
 
