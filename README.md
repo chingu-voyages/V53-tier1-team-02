@@ -39,7 +39,11 @@ coding!
 - Zoheb Tahir: [GitHub](https://github.com/ZohebTahir)  
 
 - Bryan Hoyem: [GitHub](https://github.com/bhoyem) / [LinkedIn](https://linkedin.com/in/bryanhoyem)
+
 - Chanae Pickett: [Github](https://github.com/chanaelynease)/[LinkedIn](https://linkedin.com/in/chanaepickett)
+
+- Philip Nations: [GitHub](https://github.com/pnations) / [LinkedIn](https://www.linkedin.com/in/pnations/)
+
 
   ...
 
