@@ -34,15 +34,16 @@ Everyone on your team should add their name along with a link to their GitHub
 your repo access and to practice PR'ing with your team _before_ you start
 coding!
 
-- Noah: [GitHub](https://github.com/mrcordova)
+- Noah (Developer): [GitHub](https://github.com/mrcordova)
 
-- Zoheb Tahir: [GitHub](https://github.com/ZohebTahir)  
+- Zoheb Tahir (Developer): [GitHub](https://github.com/ZohebTahir)  
 
-- Bryan Hoyem: [GitHub](https://github.com/bhoyem) / [LinkedIn](https://linkedin.com/in/bryanhoyem)
+- Bryan Hoyem (Developer): [GitHub](https://github.com/bhoyem) / [LinkedIn](https://linkedin.com/in/bryanhoyem)
 
-- Philip Nations: [GitHub](https://github.com/pnations) / [LinkedIn](https://www.linkedin.com/in/pnations/)
+- Philip Nations (Developer): [GitHub](https://github.com/pnations) / [LinkedIn](https://www.linkedin.com/in/pnations/)
 
-- Jessica Hackett: [LinkedIn](https://www.linkedin.com/in/jessica-hackett-6725a4325/?trk=opento_sprofile_topcard****)
-  ...
+- Jessica Hackett (UI/UX Designer): [LinkedIn](https://www.linkedin.com/in/jessica-hackett-6725a4325/?trk=opento_sprofile_topcard****)
+
+- Chanae Pickett (Scrum Master): [Github](https://github.com/chanaelynease)/[LinkedIn](https://linkedin.com/in/chanaepickett)
 
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
