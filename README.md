@@ -43,6 +43,5 @@ coding!
 - Philip Nations: [GitHub](https://github.com/pnations) / [LinkedIn](https://www.linkedin.com/in/pnations/)
 
 - Jessica Hackett: [LinkedIn](https://www.linkedin.com/in/jessica-hackett-6725a4325/?trk=opento_sprofile_topcard****)
-  ...
 
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Chanae Pickett: [Github](https://github.com/chanaelynease)/[LinkedIn](https://linkedin.com/in/chanaepickett)
