@@ -1,0 +1,204 @@
+html {
+    color: #222;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+body {
+    background-color: #B7DCFF66;
+    min-width: 250px;
+}
+
+/* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Mobile First
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM */
+
+/* =========================== General Styles =============================== */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    color: #044F95;
+    background-color: white;
+    font-family: inter, sans-serif;
+    padding-top: 100px;
+}
+
+h1 {
+    padding-left: 30px;
+}
+
+#dish-details-icon-1 {
+    padding-right: 30px;
+}
+
+#dishes-icon {
+    width: 35px;
+    height: 24px;
+    color: #17A1FA;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 30px 30px 30px;
+    background-color: #B7DCFF66;
+}
+
+#week-display {
+    padding: 0px 30px 30px 30px;
+}
+
+.calendar-day {
+    border-radius: 5px;
+    background-color: #AFD9FF;
+    color: #044F95 height: 160px;
+    margin-bottom: 10px;
+}
+
+.calendar-day-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: inter, sans-serif;
+    color: #044F95;
+    padding-top: 10px;
+    margin: 0px 10px;
+    border-bottom: solid #044F95 1px;
+}
+
+.food-area {
+    font-family: inter, sans-serif;
+    color: #044F95;
+    height: 120px;
+    margin: 10px;
+}
+
+button {
+    outline: none;
+    background-color: white;
+    width: 48%;
+    height: 50px;
+    border-radius: 5px;
+    font-family: inter, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #044F95;
+    text-align: center;
+}
+
+button:hover {
+    font-weight: 700;
+}
+
+
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 768px) {
+    /* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    Style adjustments for tablets 
+    TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
+
+    nav {
+        width: 50%;
+        background-color: white;
+    }
+
+    button {
+        background-color: #AFD9FF;
+        font-size: 1.3em;
+
+    }
+
+    #week-display {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 70px;
+    }
+
+    .calendar-day {
+        width: 48%;
+        height: 200px;
+        margin-bottom: 30px;
+    }
+
+    .calendar-day-header {
+        font-size: 1.3em;
+    }
+
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 1200px) {
+    /* DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+    Style adjustments for desktops
+    DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
+
+button { 
+    font-size: 1.6em;
+}
+
+    .calendar-day {
+    width: 30%;
+}
+
+.calendar-day-header {
+    font-size: 1.6em;
+}
+
+.food-area {
+    font-size: 1.4em;
+}
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+
+/*
+  * Hide visually and from screen readers, but maintain layout
+  */
+
+.invisible {
+    visibility: hidden;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+img {
+    page-break-inside: avoid;
+}
