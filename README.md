@@ -34,7 +34,6 @@ Everyone on your team should add their name along with a link to their GitHub
 your repo access and to practice PR'ing with your team _before_ you start
 coding!
 
-- Noah (Developer): [GitHub](https://github.com/mrcordova)
 
 - Zoheb Tahir (Developer): [GitHub](https://github.com/ZohebTahir)  
 
