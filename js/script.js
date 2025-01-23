@@ -18,6 +18,11 @@ closeModalBtn.addEventListener("click", () => {
     closeModal(modal)
 })
 
+overlay.addEventListener("click", () => {
+    const modal = document.querySelectorAll(".modal.active");
+    closeModal(modal);
+})
+
 function openModal(modal) {
     if (modal == null) return
     scheduleModalDiv.classList.add("active");
