@@ -8,35 +8,117 @@ const generateMenuBtn = document.getElementById("menu-btn");
 
 // 1.) Schedule Modal Functionality 
 scheduleBtn.addEventListener("click", () => {
-    const modal = document.querySelector(".modal");
-    openModal(modal);
+    // const modal = document.querySelector(".modal");
+    openModal(scheduleModalDiv);
 })
 
 
 closeModalBtn.addEventListener("click", () => {
-    const modal = document.querySelector(".close-button");
+    // const modal = document.querySelector(".close-button");
+    // const modal = document.querySelectorAll(".modal.active");
+    const modal = document.querySelector(".modal.active");
     closeModal(modal)
 })
 
 overlay.addEventListener("click", () => {
-    const modal = document.querySelectorAll(".modal.active");
+    // const modal = document.querySelectorAll(".modal.active");
+    const modal = document.querySelector(".modal.active");
     closeModal(modal);
 })
 
 function openModal(modal) {
     if (modal == null) return
-    scheduleModalDiv.classList.add("active");
+    modal.classList.add("active");
     overlay.classList.add("active");
 }
 
 function closeModal(modal) {
     if (modal == null) return
-    scheduleModalDiv.classList.remove("active");
+    modal.classList.remove("active");
     overlay.classList.remove("active");
 }
 
+generateMenuBtn.addEventListener("click", () => {
+    const dateAsInput = document.getElementById("calendar-entry").value;
+    // console.log("Date as input: " + dateAsInput);
 
-// Generate Menu Button on modal 
-// generateMenuBtn.addEventListener("click", () => {
-    
-// })
+    const dateInput = new Date(dateAsInput + 'T00:00');
+    // console.log("Converted to local time: " + dateInput);
+
+    const dayOfTheMonth = dateInput.getDate();
+
+    const month = dateInput.getMonth();
+    const displayMonth = setMonth(month);
+    const mondaysDate = findMonday(dateInput);
+    console.log("Monday's date: " + mondaysDate);
+    setCalendarDates(mondaysDate);
+    const modal = document.querySelector(".modal.active");
+    closeModal(modal);
+})
+
+// Because the months begin with January as index 0 by default,
+// this function will use the month index and return the number of
+// the month for use in date displays. e.g. passing in index 2 for 
+// march returns 03.
+function setMonth(month) {
+    const months = [
+        '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
+    ]
+    return (months[month]);
+}
+
+// This function will take the date that is passed to it and find the 
+// date of the Monday of that dates's week. This is assuming the week
+// desired starts on Monday and ends on Sunday.
+function findMonday(passedDate) {
+    let dayOfTheWeek = passedDate.getDay();
+    if (dayOfTheWeek == 0) dayOfTheWeek += 7;
+    const mondaysDate = new Date(passedDate);
+    const dateDay = passedDate.getDate();
+    mondaysDate.setDate(dateDay - (dayOfTheWeek - 1));
+    return mondaysDate;
+}
+
+// This function takes the date passed, which is a date
+// of Monday for this apps purposes, and determines the
+// month and date for display in the calendar. It calculates
+// this by using the information from Monday's date and 
+// adds the passed number of days after monday for display.
+function formatCalendarDates(passedDate, daysAfterMonday) {
+    const daysDate = new Date(passedDate);
+    const dateDay = passedDate.getDate();
+    daysDate.setDate(dateDay + (daysAfterMonday));
+    const daysMonth = setMonth(daysDate.getMonth());
+    const daysDay = daysDate.getDate();
+    const dayDisplay = daysMonth + "/" + daysDay;
+    return dayDisplay;
+}
+
+// This function takes the date passed, which was determined as 
+// Monday's date earlier, and uses it to set the dates of each 
+// of the calendar entries in the calendar.
+function setCalendarDates(mondaysDate) {
+    const mondate = document.getElementById("mondate");
+    const tuedate = document.getElementById("tuedate");
+    const weddate = document.getElementById("weddate");
+    const thurdate = document.getElementById("thurdate");
+    const fridate = document.getElementById("fridate");
+    const satdate = document.getElementById("satdate");
+    const sundate = document.getElementById("sundate");
+
+    const monDay = formatCalendarDates(mondaysDate, 0);
+    mondate.textContent = monDay;
+    const tueDay = formatCalendarDates(mondaysDate, 1);
+    tuedate.textContent = tueDay;
+    const wedDay = formatCalendarDates(mondaysDate, 2);
+    weddate.textContent = wedDay;
+    const thurDay = formatCalendarDates(mondaysDate, 3);
+    thurdate.textContent = thurDay;
+    const friDay = formatCalendarDates(mondaysDate, 4);
+    fridate.textContent = friDay;
+    const satDay = formatCalendarDates(mondaysDate, 5);
+    satdate.textContent = satDay;
+    const sunDay = formatCalendarDates(mondaysDate, 6);
+    sundate.textContent = sunDay;
+}
+
