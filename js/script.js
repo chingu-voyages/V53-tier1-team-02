@@ -4,6 +4,10 @@ const closeModalBtn = document.querySelector(".close-button");
 const overlay = document.getElementById("overlay");
 const scheduleModalDiv = document.getElementById("schedule-modal");
 const generateMenuBtn = document.getElementById("menu-btn");
+const dishIcon = document.getElementById("dishes-icon");
+
+const monDish = document.getElementById("mon-dish");
+const monIngredients = document.getElementById("mon-ingredients");
 
 
 // 1.) Schedule Modal Functionality 
@@ -24,6 +28,12 @@ overlay.addEventListener("click", () => {
     // const modal = document.querySelectorAll(".modal.active");
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
+})
+
+// I have temporarily made the dish icon call the function to generate
+// dishes to help during development.
+dishIcon.addEventListener("click", () => {
+    setDishes();
 })
 
 function openModal(modal) {
@@ -52,6 +62,7 @@ generateMenuBtn.addEventListener("click", () => {
     const mondaysDate = findMonday(dateInput);
     console.log("Monday's date: " + mondaysDate);
     setCalendarDates(mondaysDate);
+    setDishes();
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
 })
@@ -62,7 +73,7 @@ generateMenuBtn.addEventListener("click", () => {
 // march returns 03.
 function setMonth(month) {
     const months = [
-        '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'
     ]
     return (months[month]);
 }
@@ -122,3 +133,35 @@ function setCalendarDates(mondaysDate) {
     sundate.textContent = sunDay;
 }
 
+// This function fetches the dishes json file and passes it on to
+// the next function to randomly pick a dish from those listed.
+function dishPicker(weekday) {
+    console.log("entered dish picker function");
+    const getDishes = async function () {
+        const res = await fetch('/assets/dishes.json');
+        const dishes = await res.json();
+        selectRandomDish(dishes, weekday);
+    };
+    getDishes();
+}
+
+// This function randomly selects a dish from those in the
+// passed json file.
+ function selectRandomDish (dishes, weekday) {
+    const randomIndex = Math.floor(Math.random() * dishes.length);
+    console.log("randomIndex: " + randomIndex);
+    const randomDish = (dishes[randomIndex]);
+    console.log(weekday + " dish: " +(randomDish.name));
+    const randomDishIngredients = (randomDish.ingredients).join(", ");
+    console.log((randomDishIngredients));
+    monDish.textContent = (randomDish.name);
+    monIngredients.textContent = ("Ingredients: "+randomDishIngredients);
+    let dishIngredients = randomDish.ingredients;
+    console.log(dishIngredients);
+}
+
+// This function really just calls the next to start the dish selection process.
+// It may be removed for effeciency when we're all done.
+function setDishes() {
+    dishPicker("monday");
+}
