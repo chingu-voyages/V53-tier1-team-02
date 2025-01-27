@@ -30,14 +30,11 @@ h1 {
     padding-left: 30px;
 }
 
-#dish-details-icon-1 {
-    padding-right: 30px;
-}
-
 #dishes-icon {
     width: 35px;
     height: 24px;
     color: #17A1FA;
+    margin-right: 30px;
 }
 
 nav {
@@ -72,8 +69,12 @@ nav {
 .food-area {
     font-family: inter, sans-serif;
     color: #044F95;
-    height: 120px;
+    min-height: 120px;
     margin: 10px;
+}
+
+.ingredients {
+    text-indent: 10px;
 }
 
 button {
