@@ -3,6 +3,7 @@ const employeeBtn = document.getElementById("employee-button");
 const closeModalBtn = document.querySelector(".close-button");
 const overlay = document.getElementById("overlay");
 const scheduleModalDiv = document.getElementById("schedule-modal");
+const employeeModalDiv = document.getElementById("employee-modal");
 const generateMenuBtn = document.getElementById("menu-btn");
 const dishIcon = document.getElementById("dishes-icon");
 
@@ -29,6 +30,17 @@ overlay.addEventListener("click", () => {
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
 })
+
+// 2.) Employee Modal Functionality
+employeeBtn.addEventListener("click", () => {
+    openModal(employeeModalDiv);
+})
+
+closeModalBtn.addEventListener("click", () => {
+    const modal = document.querySelector(".modal.active");
+    closeModal(modal)
+})
+
 
 // I have temporarily made the dish icon call the function to generate
 // dishes to help during development.
