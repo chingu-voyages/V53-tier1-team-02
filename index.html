@@ -1,14 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Menu</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Welcome!</h1>
+    <img src="images/Vector.png" id="dishes-icon">
+    <nav>
+      <button class="nav-button" id="schedule-button">Schedule</button>
+      <button class="nav-button" id="employee-button">Employee</button>
+    </nav>
+  </header>
+
+  <!-----------------Schedule  Modal ------------------------>
+  <div class="modal" id="schedule-modal">
+    <div id="schedule-modal-header" class="modal-header">
+      <h1>Set Schedule</h1>
+      <button class="close-button">&times</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-date">Date:
+        <input id="calendar-entry" type="date" />
+      </div>
+      <button class="generate-menu-btn" id="menu-btn">Generate Menu</button>
+    </div>
+  </div>
+  <div id="overlay"></div>
+
+  <!-----------------Employee  Modal ------------------------>
+  <div class="modal" id="employee-modal">
+    <div id="employee-modal-header" class="modal-header">
+      <h1>Pick Allergies</h1>
+      <button class="close-button">&times</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-allergy-checkbox">Food Allergies:
+        <label for="tree-nuts">Tree Nuts</label>
+        <input id="tree-nuts" type="checkbox" />
+
+        <label for="garlic">Garlic</label>
+        <input id="garlic" type="checkbox" />
+
+        <label for="milk">Milk</label>
+        <input id="milk" type="checkbox" />
+
+        <label for="gluten">Gluten</label>
+        <input id="gluten" type="checkbox" />
+
+        <label for="corn">Corn</label>
+        <input id="corn" type="checkbox" />
+
+        <label for="chocolate">Chocolate</label>
+        <input id="chocolate" type="checkbox" />
+      </div>
+      <button class="submit-allegies-btn" id="menu-btn">Submit Allergies</button>
+    </div>
+  </div>
+  <div id="overlay"></div>
+
+
+  <!----------------Calendar Area of Main Page------------------>
+  <div id="week-display">
+    <div class="calendar-day" id="monday">
+      <div class="calendar-day-header">
+        <p>Monday</p>
+        <p id="mondate">mm/dd</p>
+      </div>
+      <div class="food-area">
+        <p id="mon-dish">Lutefisk!</p>
+        <p id="mon-ingredients" class="ingredients">fish</p>
+      </div>
+    </div>
+    <div class="calendar-day" id="tuesday">
+      <div class="calendar-day-header">
+        <p>Tuesday</p>
+        <p id="tuedate">mm/dd</p>
+      </div>
+      <div class="food-area">
+        <p>Doritos!!!</p>
+        <p class="ingredients"></p>
+      </div>
+    </div>
+    <div class="calendar-day" id="wednesday">
+      <div class="calendar-day-header">
+        <p>Wednesday</p>
+        <p id="weddate">mm/dd</p>
+      </div>
+      <div class="food-area">
+        <p>Cheeeese Gromit!</p>
+        <p class="ingredients"></p>
+      </div>
+    </div>
+    <div class="calendar-day" id="thursday">
+      <div class="calendar-day-header">
+        <p>Thursday</p>
+        <p id="thurdate">mm/dd</p>
+      </div>
+      <div class="food-area">
+        <p>Coffee</p>
+        <p class="ingredients"></p>
+      </div>
+    </div>
+    <div class="calendar-day" id="friday">
+      <div class="calendar-day-header">
+        <p>Friday</p>
+        <p id="fridate">mm/dd</p>
+      </div>
+      <div class="food-area">
+        <p>Stewed Cabbage</p>
+        <p class="ingredients"></p>
+      </div>
+    </div>
+    <div class="calendar-day" id="saturday">
+      <div class="calendar-day-header">
+        <p>Saturday</p>
+        <p id="satdate">mm/dd</p>
+      </div>
+      <div class="food-area">
+        <p>Steak and Lobster</p>
+        <p class="ingredients"></p>
+      </div>
+    </div>
+    <div class="calendar-day" id="sunday">
+      <div class="calendar-day-header">
+        <p>Sunday</p>
+        <p id="sundate">mm/dd</p>
+      </div>
+      <div class="food-area">
+        <p>Pizza!</p>
+        <p class="ingredients"></p>
+      </div>
+    </div>
+
     <script type="module" src="js/script.js"></script>
-  </head>
-  <body>
-    <h1>Hello World</h1>
-  </body>
+</body>
+
 </html>

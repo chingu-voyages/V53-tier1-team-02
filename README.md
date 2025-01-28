@@ -34,13 +34,10 @@ Everyone on your team should add their name along with a link to their GitHub
 your repo access and to practice PR'ing with your team _before_ you start
 coding!
 
-- Noah (Developer): [GitHub](https://github.com/mrcordova)
 
 - Zoheb Tahir (Developer): [GitHub](https://github.com/ZohebTahir)  
 
 - Bryan Hoyem (Developer): [GitHub](https://github.com/bhoyem) / [LinkedIn](https://linkedin.com/in/bryanhoyem)
-
-- Philip Nations (Developer): [GitHub](https://github.com/pnations) / [LinkedIn](https://www.linkedin.com/in/pnations/)
 
 - Jessica Hackett (UI/UX Designer): [LinkedIn](https://www.linkedin.com/in/jessica-hackett-6725a4325/?trk=opento_sprofile_topcard****)
 

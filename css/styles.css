@@ -1,0 +1,301 @@
+html {
+    color: #222;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+body {
+    background-color: #B7DCFF66;
+    min-width: 250px;
+}
+
+/* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Mobile First
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM */
+
+/* =========================== General Styles =============================== */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    color: #044F95;
+    background-color: white;
+    font-family: inter, sans-serif;
+    padding-top: 100px;
+}
+
+h1 {
+    padding-left: 30px;
+}
+
+#dishes-icon {
+    width: 35px;
+    height: 24px;
+    color: #17A1FA;
+    margin-right: 30px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 30px 30px 30px;
+    background-color: #B7DCFF66;
+}
+
+#week-display {
+    padding: 0px 30px 30px 30px;
+}
+
+.calendar-day {
+    border-radius: 5px;
+    background-color: #AFD9FF;
+    color: #044F95 height: 160px;
+    margin-bottom: 10px;
+}
+
+.calendar-day-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: inter, sans-serif;
+    color: #044F95;
+    padding-top: 10px;
+    margin: 0px 10px;
+    border-bottom: solid #044F95 1px;
+}
+
+.food-area {
+    font-family: inter, sans-serif;
+    color: #044F95;
+    min-height: 120px;
+    margin: 10px;
+}
+
+.ingredients {
+    text-indent: 10px;
+}
+
+button {
+    outline: none;
+    background-color: white;
+    width: 48%;
+    height: 50px;
+    border-radius: 5px;
+    font-family: inter, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #044F95;
+    text-align: center;
+}
+
+button:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* =========================== Modal Styles =============================== */
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); 
+    transition: 200ms ease-in-out;
+    border: 1px solid black; 
+    border-radius: 10px; 
+    z-index: 10;
+    background-color: white; 
+    height: 315px;
+    width: 500px; 
+    font-family: inter, sans-serif;
+    color: #044F95;
+    font-size: 1.2em;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-date, .modal-allergy-checkbox{
+    padding: 10px 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.close-button {
+    cursor: pointer; 
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.75rem;
+    font-weight: bold;
+    width: 60px;
+    height: 1.2em;
+
+}
+
+#overlay {
+    position: fixed; 
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    pointer-events: all;
+    opacity: 1; 
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 150px;
+}
+
+.modal-header h1 {
+    font-size: 1.2em;
+    padding-left: 10px;
+}
+
+.modal-body {
+    background-color: #B7DCFF66;
+    height: 165px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#menu-btn {
+    background-color: #AFD9FF;
+    width: auto;
+    margin: 10px 10px 0px 10px;
+    padding: 10px 0px;
+    height: 1.5em;
+
+}
+
+
+
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 768px) {
+    /* TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    Style adjustments for tablets 
+    TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
+
+    nav {
+        width: 50%;
+        background-color: white;
+    }
+
+    button {
+        background-color: #AFD9FF;
+        font-size: 1.3em;
+
+    }
+
+    #week-display {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 70px;
+    }
+
+    .calendar-day {
+        width: 48%;
+        height: 200px;
+        margin-bottom: 30px;
+    }
+
+    .calendar-day-header {
+        font-size: 1.3em;
+    }
+
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 1200px) {
+    /* DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+    Style adjustments for desktops
+    DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
+
+button { 
+    font-size: 1.6em;
+}
+
+    .calendar-day {
+    width: 30%;
+}
+
+.calendar-day-header {
+    font-size: 1.6em;
+}
+
+.food-area {
+    font-size: 1.4em;
+}
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+
+/*
+  * Hide visually and from screen readers, but maintain layout
+  */
+
+.invisible {
+    visibility: hidden;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+img {
+    page-break-inside: avoid;
+}
