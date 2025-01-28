@@ -152,6 +152,10 @@ function dishPicker(weekday) {
     console.log("randomIndex: " + randomIndex);
     const randomDish = (dishes[randomIndex]);
     console.log(weekday + " dish: " +(randomDish.name));
+    allergycheck(randomDish);
+ }
+
+ function foodDisplay(checkedDish){
     const randomDishIngredients = (randomDish.ingredients).join(", ");
     console.log((randomDishIngredients));
     monDish.textContent = (randomDish.name);
@@ -165,3 +169,15 @@ function dishPicker(weekday) {
 function setDishes() {
     dishPicker("monday");
 }
+
+function allergyCheck(randomDish){
+    if(gluten) {
+        //    does randomDish.ingredients contain wheat||bread||
+        // if the dish fails this check, call selectRandomDish()
+        //  again to get a new dish
+        }
+    if(milk) {
+        // check for milk ingredients
+    }
+}
+
