@@ -146,12 +146,14 @@ function setCalendarDates(mondaysDate) {
 }
 
 // This function fetches the dishes json file and passes it on to
-// the next function to randomly pick a dish from those listed.
+// the next function to randomly pick a dish from those listed. ** use this in conjunction with filter allergies function
 function dishPicker(weekday) {
     console.log("entered dish picker function");
     const getDishes = async function () {
-        const res = await fetch('/assets/dishes.json');
+        const res = await fetch('assets/dishes.json');
         const dishes = await res.json();
+        console.log(dishes);
+        console.log("dishes");
         selectRandomDish(dishes, weekday);
     };
     getDishes();
@@ -177,3 +179,11 @@ function dishPicker(weekday) {
 function setDishes() {
     dishPicker("monday");
 }
+
+//  JSON MENU CODE 
+
+// 1.) Use JSON and filter allergens function to create an allergy free array []
+
+// 2.) Generate random dish from allergy free array [pizza, pasta]
+
+// 3.) Render random dishes to front screen
