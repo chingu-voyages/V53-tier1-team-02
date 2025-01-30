@@ -1,6 +1,7 @@
 const scheduleBtn = document.getElementById("schedule-button");
 const employeeBtn = document.getElementById("employee-button");
 const closeModalBtn = document.querySelector(".close-button");
+const closeModalEmployeeBtn = document.querySelector(".close-button-employee"); 
 const overlay = document.getElementById("overlay");
 const scheduleModalDiv = document.getElementById("schedule-modal");
 const employeeModalDiv = document.getElementById("employee-modal");
@@ -36,7 +37,7 @@ employeeBtn.addEventListener("click", () => {
     openModal(employeeModalDiv);
 })
 
-closeModalBtn.addEventListener("click", () => {
+closeModalEmployeeBtn.addEventListener("click", () => {
     const modal = document.querySelector(".modal.active");
     closeModal(modal)
 })
