@@ -167,6 +167,10 @@ function dishPicker(weekday) {
     console.log("randomIndex: " + randomIndex);
     const randomDish = (dishes[randomIndex]);
     console.log(weekday + " dish: " +(randomDish.name));
+    allergycheck(randomDish);
+ }
+
+ function foodDisplay(checkedDish){
     const randomDishIngredients = (randomDish.ingredients).join(", ");
     console.log((randomDishIngredients));
     monDish.textContent = (randomDish.name);
@@ -181,6 +185,7 @@ function setDishes() {
     dishPicker("monday");
 }
 
+
 //  JSON MENU CODE 
 
 // 1.) Use JSON and filter allergens function to create an allergy free array []
@@ -188,3 +193,18 @@ function setDishes() {
 // 2.) Generate random dish from allergy free array [pizza, pasta]
 
 // 3.) Render random dishes to front screen
+
+
+function allergyCheck(randomDish){
+    if(gluten) {
+        //    does randomDish.ingredients contain wheat||bread||
+        // if the dish fails this check, call selectRandomDish()
+        //  again to get a new dish
+        }
+    if(milk) {
+        // check for milk ingredients
+    }
+}
+
+
+
