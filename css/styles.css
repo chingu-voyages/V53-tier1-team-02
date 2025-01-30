@@ -130,7 +130,7 @@ button:hover {
     font-weight: bold;
 }
 
-.close-button {
+.close-button, .close-button-employee{
     cursor: pointer; 
     border: none;
     outline: none;
