@@ -195,16 +195,28 @@ function setDishes() {
 // 3.) Render random dishes to front screen
 
 
-function allergyCheck(randomDish){
-    if(gluten) {
-        //    does randomDish.ingredients contain wheat||bread||
-        // if the dish fails this check, call selectRandomDish()
-        //  again to get a new dish
-        }
-    if(milk) {
-        // check for milk ingredients
-    }
-}
+// function allergyCheck(randomDish){
+//     if(Tree Nuts) {
+//         //    does randomDish.ingredients contain wheat||bread||
+//         // if the dish fails this check, call selectRandomDish()
+//         //  again to get a new dish
+//         }
+//     if(Garlic) {
+//         // check for Garlic ingredients
+//     }
+//     if(Milk) {
+//         // check for Milk ingredients
+//     }
+//     if(Gluten) {
+//         // check for Gluten ingredients
+//     }
+//     if(Corn) {
+//         // check for Corn ingredients
+//     }
+//     if(Chocolate) {
+//         // check for Chocolate ingredients
+//     }
+// }
 
-
+// Get required info 
 
