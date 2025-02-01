@@ -182,15 +182,14 @@ button:hover {
 
 }
 
-
-
 #menu-btn {
     background-color: #AFD9FF;
     width: auto;
     margin: 10px 10px 0px 10px;
     padding: 10px 0px;
     height: 1.5em;
-
+    /* #calendar-entry:invalid::{color red}
+    #calendar-entry:valid::{color #044F95} */
 }
 
 

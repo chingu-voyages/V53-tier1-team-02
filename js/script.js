@@ -1,12 +1,13 @@
 const scheduleBtn = document.getElementById("schedule-button");
 const employeeBtn = document.getElementById("employee-button");
 const closeModalBtn = document.querySelector(".close-button");
-const closeModalEmployeeBtn = document.querySelector(".close-button-employee"); 
+const closeModalEmployeeBtn = document.querySelector(".close-button-employee");
 const overlay = document.getElementById("overlay");
 const scheduleModalDiv = document.getElementById("schedule-modal");
 const employeeModalDiv = document.getElementById("employee-modal");
 const generateMenuBtn = document.getElementById("menu-btn");
 const dishIcon = document.getElementById("dishes-icon");
+const dateInput = document.getElementById("calendar-entry");
 
 const monDish = document.getElementById("mon-dish");
 const monIngredients = document.getElementById("mon-ingredients");
@@ -14,7 +15,24 @@ const monIngredients = document.getElementById("mon-ingredients");
 
 // 1.) Schedule Modal Functionality 
 scheduleBtn.addEventListener("click", () => {
-    // const modal = document.querySelector(".modal");
+    //The lines of code between here and the openModal at the end
+    //serve to auto-populate the calendar with an initial value of 
+    //today's date and also set today's date as the minimum date
+    //that can be entered, preventing someone from entering a date
+    //in the past.
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = setMonth(today.getMonth()); //January is 0!
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("calendar-entry").setAttribute("min", today);
+    document.getElementById("calendar-entry").setAttribute("value",today);
     openModal(scheduleModalDiv);
 })
 
@@ -61,24 +79,48 @@ function closeModal(modal) {
     overlay.classList.remove("active");
 }
 
+// +++++++These next chunks of code work together.+++++++
+// This gets the entered date, determines the date of the 
+// Monday previous to the entered date, and then sets the 
+// dates of the week containing the selected date.
 generateMenuBtn.addEventListener("click", () => {
     const dateAsInput = document.getElementById("calendar-entry").value;
-    // console.log("Date as input: " + dateAsInput);
-
     const dateInput = new Date(dateAsInput + 'T00:00');
-    // console.log("Converted to local time: " + dateInput);
-
     const dayOfTheMonth = dateInput.getDate();
-
     const month = dateInput.getMonth();
     const displayMonth = setMonth(month);
     const mondaysDate = findMonday(dateInput);
-    console.log("Monday's date: " + mondaysDate);
     setCalendarDates(mondaysDate);
     setDishes();
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
 })
+
+// This disables the "Generate Menu" button if the entered
+// date is not valid and changes the text of the button to let
+// the user know they have to enter a valid date of today or 
+// in the future.
+dateInput.addEventListener("input", () => {
+    const enteredDate = new Date(dateInput.value + 'T00:00');
+    if (isValidDate(enteredDate)) {
+        generateMenuBtn.disabled = false;
+        generateMenuBtn.style.fontSize = "18px";
+        generateMenuBtn.textContent = "Generate Menu";
+    } else {
+        generateMenuBtn.disabled = true;
+        generateMenuBtn.style.fontSize = ".75em";
+        generateMenuBtn.textContent = "Enter valid current or future date";
+    }
+})
+
+// This is the function that checks if the entered date is valid
+// by making sure it's equal to or greater than today.
+function isValidDate(date) {
+    let today = new Date();
+    today.setHours(0,0,0,0); //this sets the time of today's date to all 0's so that the time of day doesn't interfere with the check
+    return (date >= today);
+}
+
 
 // Because the months begin with January as index 0 by default,
 // this function will use the month index and return the number of
@@ -162,31 +204,35 @@ function dishPicker(weekday) {
 
 // This function randomly selects a dish from those in the
 // passed json file.
- function selectRandomDish (dishes, weekday) {
+function selectRandomDish(dishes, weekday) {
     const randomIndex = Math.floor(Math.random() * dishes.length);
     console.log("randomIndex: " + randomIndex);
     const randomDish = (dishes[randomIndex]);
-    console.log(weekday + " dish: " +(randomDish.name));
-    allergycheck(randomDish);
- }
+    console.log(weekday + " dish: " + (randomDish.name));
+    allergyCheck(randomDish);
+}
 
- function foodDisplay(checkedDish){
-    const randomDishIngredients = (randomDish.ingredients).join(", ");
-    console.log((randomDishIngredients));
-    monDish.textContent = (randomDish.name);
-    monIngredients.textContent = ("Ingredients: "+randomDishIngredients);
-    let dishIngredients = randomDish.ingredients;
-    console.log(dishIngredients);
+function foodDisplay(checkedDish) {
+    const checkedDishIngredients = (checkedDish.ingredients).join(", ");
+    console.log((checkedDishIngredients));
+    monDish.textContent = (checkedDish.name);
+    monIngredients.textContent = ("Ingredients: " + checkedDishIngredients);
+    let dishIngredients = checkedDish.ingredients;
+    console.table(dishIngredients);
 }
 
 // This function really just calls the next to start the dish selection process.
-// It may be removed for effeciency when we're all done.
+// It may be removed for effeciency when we're all done or it may be modified and
+// used to select different days of the week...
 function setDishes() {
     dishPicker("monday");
 }
 
+function allergyCheck(randomDish) {
+    foodDisplay(randomDish);
+};
 
-//  JSON MENU CODE 
+//  JSON MENU CODE
 
 // 1.) Use JSON and filter allergens function to create an allergy free array []
 
