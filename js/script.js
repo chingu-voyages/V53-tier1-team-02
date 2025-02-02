@@ -9,8 +9,16 @@ const generateMenuBtn = document.getElementById("menu-btn");
 const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
 
-const monDish = document.getElementById("mon-dish");
-const monIngredients = document.getElementById("mon-ingredients");
+const mondate = document.getElementById("mondate");
+const tuedate = document.getElementById("tuedate");
+const weddate = document.getElementById("weddate");
+const thurdate = document.getElementById("thurdate");
+const fridate = document.getElementById("fridate");
+const satdate = document.getElementById("satdate");
+const sundate = document.getElementById("sundate");
+
+const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
 
 // 1.) Schedule Modal Functionality 
@@ -22,7 +30,7 @@ scheduleBtn.addEventListener("click", () => {
     //in the past.
     let today = new Date();
     let dd = today.getDate();
-    let mm = setMonth(today.getMonth()); //January is 0!
+    let mm = months[(today.getMonth())];
     let yyyy = today.getFullYear();
     if (dd < 10) {
         dd = '0' + dd;
@@ -32,7 +40,7 @@ scheduleBtn.addEventListener("click", () => {
     }
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("calendar-entry").setAttribute("min", today);
-    document.getElementById("calendar-entry").setAttribute("value",today);
+    document.getElementById("calendar-entry").setAttribute("value", today);
     openModal(scheduleModalDiv);
 })
 
@@ -86,9 +94,6 @@ function closeModal(modal) {
 generateMenuBtn.addEventListener("click", () => {
     const dateAsInput = document.getElementById("calendar-entry").value;
     const dateInput = new Date(dateAsInput + 'T00:00');
-    const dayOfTheMonth = dateInput.getDate();
-    const month = dateInput.getMonth();
-    const displayMonth = setMonth(month);
     const mondaysDate = findMonday(dateInput);
     setCalendarDates(mondaysDate);
     setDishes();
@@ -117,20 +122,8 @@ dateInput.addEventListener("input", () => {
 // by making sure it's equal to or greater than today.
 function isValidDate(date) {
     let today = new Date();
-    today.setHours(0,0,0,0); //this sets the time of today's date to all 0's so that the time of day doesn't interfere with the check
+    today.setHours(0, 0, 0, 0); //this sets the time of today's date to all 0's so that the time of day doesn't interfere with the check
     return (date >= today);
-}
-
-
-// Because the months begin with January as index 0 by default,
-// this function will use the month index and return the number of
-// the month for use in date displays. e.g. passing in index 2 for 
-// march returns 03.
-function setMonth(month) {
-    const months = [
-        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'
-    ]
-    return (months[month]);
 }
 
 // This function will take the date that is passed to it and find the 
@@ -154,7 +147,7 @@ function formatCalendarDates(passedDate, daysAfterMonday) {
     const daysDate = new Date(passedDate);
     const dateDay = passedDate.getDate();
     daysDate.setDate(dateDay + (daysAfterMonday));
-    const daysMonth = setMonth(daysDate.getMonth());
+    const daysMonth = months[(daysDate.getMonth())]; //months uses the globally defined array to account for Jan being month 0 in the date input but we want to display as 1
     const daysDay = daysDate.getDate();
     const dayDisplay = daysMonth + "/" + daysDay;
     return dayDisplay;
@@ -164,14 +157,6 @@ function formatCalendarDates(passedDate, daysAfterMonday) {
 // Monday's date earlier, and uses it to set the dates of each 
 // of the calendar entries in the calendar.
 function setCalendarDates(mondaysDate) {
-    const mondate = document.getElementById("mondate");
-    const tuedate = document.getElementById("tuedate");
-    const weddate = document.getElementById("weddate");
-    const thurdate = document.getElementById("thurdate");
-    const fridate = document.getElementById("fridate");
-    const satdate = document.getElementById("satdate");
-    const sundate = document.getElementById("sundate");
-
     const monDay = formatCalendarDates(mondaysDate, 0);
     mondate.textContent = monDay;
     const tueDay = formatCalendarDates(mondaysDate, 1);
@@ -188,49 +173,47 @@ function setCalendarDates(mondaysDate) {
     sundate.textContent = sunDay;
 }
 
+// This function really starts the dish selection process.
+// It runs once for each day of the week.
+function setDishes() {
+    for (let i = 0; i < 7; i++) {
+        dishPicker(weekdayArray[i]);
+    }
+}
+
 // This function fetches the dishes json file and passes it on to
 // the next function to randomly pick a dish from those listed. ** use this in conjunction with filter allergies function
 function dishPicker(weekday) {
-    console.log("entered dish picker function");
     const getDishes = async function () {
-        const res = await fetch('assets/dishes.json');
+
+/*************This is where we can modify these two lines to call from a different file once we have a reduced list without allergens. */        
+        const res = await fetch('assets/dishes.json'); //These first two lines call the json. 
         const dishes = await res.json();
-        console.log(dishes);
-        console.log("dishes");
-        selectRandomDish(dishes, weekday);
+/******************************************************************************************** */
+
+        const randomIndex = Math.floor(Math.random() * dishes.length); //these next lines select a random dish from the json
+        console.log("randomIndex: " + randomIndex); //-----This will be removed for final production
+        const randomDish = (dishes[randomIndex]);
+        console.log(weekday + " dish: " + (randomDish.name)); //-----This will be removed for final production
+
+        foodDisplay(weekday, randomDish);  //This calls the function to display the dishes in the calendar
     };
     getDishes();
 }
 
-// This function randomly selects a dish from those in the
-// passed json file.
-function selectRandomDish(dishes, weekday) {
-    const randomIndex = Math.floor(Math.random() * dishes.length);
-    console.log("randomIndex: " + randomIndex);
-    const randomDish = (dishes[randomIndex]);
-    console.log(weekday + " dish: " + (randomDish.name));
-    allergyCheck(randomDish);
-}
-
-function foodDisplay(checkedDish) {
+// This function will take a day and dish and display it in the corresponding day of the calendar
+function foodDisplay(weekday, checkedDish) {
     const checkedDishIngredients = (checkedDish.ingredients).join(", ");
-    console.log((checkedDishIngredients));
-    monDish.textContent = (checkedDish.name);
-    monIngredients.textContent = ("Ingredients: " + checkedDishIngredients);
-    let dishIngredients = checkedDish.ingredients;
-    console.table(dishIngredients);
+    console.log((checkedDishIngredients)); //-----This will be removed for final production
+    let dayDish = document.querySelector(`#${weekday} .dish-name`);
+    let dayIngredients = document.querySelector(`#${weekday} .ingredients`);
+    dayDish.textContent = (checkedDish.name);
+    dayIngredients.textContent = ("Ingredients: " + checkedDishIngredients);
 }
 
-// This function really just calls the next to start the dish selection process.
-// It may be removed for effeciency when we're all done or it may be modified and
-// used to select different days of the week...
-function setDishes() {
-    dishPicker("monday");
-}
-
-function allergyCheck(randomDish) {
-    foodDisplay(randomDish);
-};
+// function allergyCheck(randomDish) {
+//     foodDisplay(randomDish);
+// };
 
 //  JSON MENU CODE
 

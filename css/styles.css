@@ -27,14 +27,16 @@ header {
 }
 
 h1 {
+    font-size: 1.5em;
     padding-left: 30px;
 }
 
 #dishes-icon {
-    width: 35px;
-    height: 24px;
+    width: auto;
+    height: 20px;
     color: #17A1FA;
     margin-right: 30px;
+    filter: drop-shadow(0px 3px 2px gray);
 }
 
 nav {
@@ -43,6 +45,10 @@ nav {
     justify-content: space-between;
     padding: 40px 30px 30px 30px;
     background-color: #B7DCFF66;
+}
+
+.nav-button {
+    filter: drop-shadow(0px 3px 2px gray);
 }
 
 #week-display {
@@ -66,6 +72,10 @@ nav {
     border-bottom: solid #044F95 1px;
 }
 
+.week-day {
+    font-weight: bold;
+}
+
 .food-area {
     font-family: inter, sans-serif;
     color: #044F95;
@@ -73,8 +83,13 @@ nav {
     margin: 10px;
 }
 
+.dish-name {
+    font-weight: bold;
+}
+
 .ingredients {
-    text-indent: 10px;
+    text-indent: -10px;
+    padding-left: 10px;
 }
 
 button {
