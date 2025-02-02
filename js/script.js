@@ -5,9 +5,12 @@ const closeModalEmployeeBtn = document.querySelector(".close-button-employee");
 const overlay = document.getElementById("overlay");
 const scheduleModalDiv = document.getElementById("schedule-modal");
 const employeeModalDiv = document.getElementById("employee-modal");
+const form = document.querySelector("form")
 const generateMenuBtn = document.getElementById("menu-btn");
 const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
+let allergiesArray = [];
+let allergiesObject = {}; 
 
 const mondate = document.getElementById("mondate");
 const tuedate = document.getElementById("tuedate");
@@ -19,6 +22,11 @@ const sundate = document.getElementById("sundate");
 
 const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
+// ***** DO WE NEED monDish or monIngredients?? *****
+// const monDish = document.getElementById("mon-dish");
+// const monIngredients = document.getElementById("mon-ingredients");
+
 
 
 // 1.) Schedule Modal Functionality 
@@ -44,7 +52,7 @@ scheduleBtn.addEventListener("click", () => {
     openModal(scheduleModalDiv);
 })
 
-
+//Modal functionality
 closeModalBtn.addEventListener("click", () => {
     // const modal = document.querySelector(".close-button");
     // const modal = document.querySelectorAll(".modal.active");
@@ -52,6 +60,7 @@ closeModalBtn.addEventListener("click", () => {
     closeModal(modal)
 })
 
+//Adds background change feature
 overlay.addEventListener("click", () => {
     // const modal = document.querySelectorAll(".modal.active");
     const modal = document.querySelector(".modal.active");
@@ -68,6 +77,40 @@ closeModalEmployeeBtn.addEventListener("click", () => {
     closeModal(modal)
 })
 
+// 2.b) Employee allergies submit can be stored in an array or an object
+
+// 2.b1) Store allergies in an array (Secondary Pick)
+// form.addEventListener("submit", (e) => {
+//     e.preventDefault();
+
+//     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
+//         if (allergy.checked === true) {
+//             allergiesArray.push(allergy.value);
+//         }
+//     })
+
+//     console.log(allergiesArray);
+// })
+
+// 2.b2) Store allergies in an object (TOP PICK*)
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
+        if (allergy.checked === true) {
+            allergiesObject[allergy.value] = true;
+        } else if (allergy.checked === false) {
+            allergiesObject[allergy.value] = false;
+        }
+    })
+
+    console.log(allergiesObject);
+    // FEATURE Data in object is placed into sepearte arrays
+    // console.log(Object.entries(allergiesObject));
+})
+
+
+
 
 // I have temporarily made the dish icon call the function to generate
 // dishes to help during development.
@@ -75,12 +118,14 @@ dishIcon.addEventListener("click", () => {
     setDishes();
 })
 
+// Opens modal
 function openModal(modal) {
     if (modal == null) return
     modal.classList.add("active");
     overlay.classList.add("active");
 }
 
+// Closes modal 
 function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove("active");
