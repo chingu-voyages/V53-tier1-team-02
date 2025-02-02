@@ -11,7 +11,8 @@ const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
 let allergiesArray = [];
 let allergiesObject = {}; 
-
+let allergenicIngredients = [];
+let dishes; 
 const mondate = document.getElementById("mondate");
 const tuedate = document.getElementById("tuedate");
 const weddate = document.getElementById("weddate");
@@ -23,9 +24,7 @@ const sundate = document.getElementById("sundate");
 const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-// ***** DO WE NEED monDish or monIngredients?? *****
-// const monDish = document.getElementById("mon-dish");
-// const monIngredients = document.getElementById("mon-ingredients");
+
 
 
 
@@ -52,7 +51,7 @@ scheduleBtn.addEventListener("click", () => {
     openModal(scheduleModalDiv);
 })
 
-//Modal functionality
+//Modal functionality, enables the modal to open and close by click on the "x" button as well as clicking outside of the modal itself, other buttons outside of the modal are unable to be interacted with, there is also a background dull feature
 closeModalBtn.addEventListener("click", () => {
     // const modal = document.querySelector(".close-button");
     // const modal = document.querySelectorAll(".modal.active");
@@ -77,7 +76,7 @@ closeModalEmployeeBtn.addEventListener("click", () => {
     closeModal(modal)
 })
 
-// 2.b) Employee allergies submit can be stored in an array or an object
+// 2.b) Employee allergies submission, can be stored in an array or an object
 
 // 2.b1) Store allergies in an array (Secondary Pick)
 // form.addEventListener("submit", (e) => {
@@ -233,7 +232,7 @@ function dishPicker(weekday) {
 
 /*************This is where we can modify these two lines to call from a different file once we have a reduced list without allergens. */        
         const res = await fetch('assets/dishes.json'); //These first two lines call the json. 
-        const dishes = await res.json();
+        dishes = await res.json();
 /******************************************************************************************** */
 
         const randomIndex = Math.floor(Math.random() * dishes.length); //these next lines select a random dish from the json
@@ -294,3 +293,6 @@ function foodDisplay(weekday, checkedDish) {
 
 // Get required info 
 
+// Allergenic ingredients array i.e specific gluten based products such as bread, wheat, flour
+
+// filter for the dishes array correseponding to allergens
