@@ -27,7 +27,6 @@ const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "s
 
 
 
-
 // 1.) Schedule Modal Functionality 
 scheduleBtn.addEventListener("click", () => {
     //The lines of code between here and the openModal at the end
@@ -296,3 +295,5 @@ function foodDisplay(weekday, checkedDish) {
 // Allergenic ingredients array i.e specific gluten based products such as bread, wheat, flour
 
 // filter for the dishes array correseponding to allergens
+
+// test push
