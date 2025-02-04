@@ -307,13 +307,13 @@ function foodDisplay(weekday, checkedDish) {
 
 //  JSON MENU CODE
 
-// 1.) Use JSON and filter allergens function to create an allergy free array []
+// 1.) Use JSON and filter allergens function to create an allergy free array [] 
 
-// 2.) Generate random dish from allergy free array [pizza, pasta]
+// 2.) Generate random dish from allergy free array [pizza, pasta] 
 
 // 3.) Render random dishes to front screen
 
-
+//original notes
 // function allergyCheck(randomDish){
 //     if(Tree Nuts === true) {
 //         //    does randomDish.ingredients contain wheat||bread||
@@ -336,6 +336,30 @@ function foodDisplay(weekday, checkedDish) {
 //         // check for Chocolate ingredients
 //     }
 // }
+
+// edit UPDATED FLAGGED FOODS 
+// function allergyCheck(randomDish){
+//     if(Tree Nuts === true) {
+//         array.includes() // No tree nuts
+//         }
+//     if(Garlic === true) {
+//         array.includes("Garlic")
+//     }
+//     if(Milk === true) {
+//         array.includes("Cream", "Cheese", "butter", "yogurt")
+//     }
+//     if(Gluten === true) {
+//         array.includes("Bread", "Flour", "Pasta")
+//     }
+//     if(Corn === true) {
+//         array.includes("Corn")
+//     }
+//     if(Chocolate === true) {
+//         array.includes("Chocolate")
+//     }
+// }
+
+
 
 // Get required info 
 
