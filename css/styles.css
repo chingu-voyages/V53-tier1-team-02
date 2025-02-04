@@ -22,12 +22,13 @@ header {
     align-items: baseline;
     color: #044F95;
     background-color: white;
-    font-family: inter, sans-serif;
+    font-family: quicksand, sans-serif;
     padding-top: 100px;
 }
 
 h1 {
-    font-size: 1.5em;
+    font-family: quicksand, sans-serif;
+    font-size: 24pt;
     padding-left: 30px;
 }
 
@@ -98,7 +99,7 @@ button {
     width: 48%;
     height: 50px;
     border-radius: 5px;
-    font-family: inter, sans-serif;
+    font-family: quicksand, sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
@@ -126,7 +127,7 @@ button:hover {
     background-color: white; 
     height: 315px;
     width: 500px; 
-    font-family: inter, sans-serif;
+    font-family: quicksand, sans-serif;
     color: #044F95;
     font-size: 1.2em;
     max-width: 80%;
