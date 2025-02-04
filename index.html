@@ -11,7 +11,7 @@
 
 <body>
   <header>
-    <h1>Welcome!</h1>
+    <h1>This Week's Menu</h1>
     <img src="images/Vector.png" id="dishes-icon">
     <nav>
       <button class="nav-button" id="schedule-button">Schedule</button>
@@ -27,7 +27,7 @@
     </div>
     <div class="modal-body">
       <div class="modal-date">Date:
-        <input id="calendar-entry" type="date" />
+        <input id="calendar-entry" type="date" required />
       </div>
       <button class="generate-menu-btn" id="menu-btn">Generate Menu</button>
     </div>
@@ -38,29 +38,31 @@
   <div class="modal" id="employee-modal">
     <div id="employee-modal-header" class="modal-header">
       <h1>Pick Allergies</h1>
-      <button class="close-button">&times</button>
+      <button class="close-button-employee">&times</button>
     </div>
     <div class="modal-body">
-      <div class="modal-allergy-checkbox">Food Allergies:
-        <label for="tree-nuts">Tree Nuts</label>
-        <input id="tree-nuts" type="checkbox" />
+      <form>
+        <div class="modal-allergy-checkbox">Food Allergies:
+          <input id="tree-nuts" type="checkbox" value="Tree Nuts" />
+          <label for="tree-nuts">Tree Nuts</label>
 
-        <label for="garlic">Garlic</label>
-        <input id="garlic" type="checkbox" />
+          <input id="garlic" type="checkbox" value="Garlic" />
+          <label for="garlic">Garlic</label>
 
-        <label for="milk">Milk</label>
-        <input id="milk" type="checkbox" />
+          <input id="milk" type="checkbox" value="Milk" />
+          <label for="milk">Milk</label>
 
-        <label for="gluten">Gluten</label>
-        <input id="gluten" type="checkbox" />
+          <input id="gluten" type="checkbox" value="Gluten" />
+          <label for="gluten">Gluten</label>
 
-        <label for="corn">Corn</label>
-        <input id="corn" type="checkbox" />
+          <input id="corn" type="checkbox" value="Corn" />
+          <label for="corn">Corn</label>
 
-        <label for="chocolate">Chocolate</label>
-        <input id="chocolate" type="checkbox" />
-      </div>
-      <button class="submit-allegies-btn" id="menu-btn">Submit Allergies</button>
+          <input id="chocolate" type="checkbox" value="Chocolate" />
+          <label for="chocolate">Chocolate</label>
+        </div>
+        <button class="submit-allegies-btn" id="menu-btn" type="submit">Submit Allergies</button>
+      </form>
     </div>
   </div>
   <div id="overlay"></div>
@@ -70,71 +72,71 @@
   <div id="week-display">
     <div class="calendar-day" id="monday">
       <div class="calendar-day-header">
-        <p>Monday</p>
+        <p class="week-day">Monday</p>
         <p id="mondate">mm/dd</p>
       </div>
       <div class="food-area">
-        <p id="mon-dish">Lutefisk!</p>
-        <p id="mon-ingredients" class="ingredients">fish</p>
+        <p class="dish-name">Please select dates</p>
+        <p class="ingredients"></p>
       </div>
     </div>
     <div class="calendar-day" id="tuesday">
       <div class="calendar-day-header">
-        <p>Tuesday</p>
+        <p class="week-day">Tuesday</p>
         <p id="tuedate">mm/dd</p>
       </div>
       <div class="food-area">
-        <p>Doritos!!!</p>
+        <p class="dish-name"></p>
         <p class="ingredients"></p>
       </div>
     </div>
     <div class="calendar-day" id="wednesday">
       <div class="calendar-day-header">
-        <p>Wednesday</p>
+        <p class="week-day">Wednesday</p>
         <p id="weddate">mm/dd</p>
       </div>
       <div class="food-area">
-        <p>Cheeeese Gromit!</p>
+        <p class="dish-name"></p>
         <p class="ingredients"></p>
       </div>
     </div>
     <div class="calendar-day" id="thursday">
       <div class="calendar-day-header">
-        <p>Thursday</p>
+        <p class="week-day">Thursday</p>
         <p id="thurdate">mm/dd</p>
       </div>
       <div class="food-area">
-        <p>Coffee</p>
+        <p class="dish-name"></p>
         <p class="ingredients"></p>
       </div>
     </div>
     <div class="calendar-day" id="friday">
       <div class="calendar-day-header">
-        <p>Friday</p>
+        <p class="week-day">Friday</p>
         <p id="fridate">mm/dd</p>
       </div>
       <div class="food-area">
-        <p>Stewed Cabbage</p>
+        <p class="dish-name"></p>
         <p class="ingredients"></p>
       </div>
     </div>
     <div class="calendar-day" id="saturday">
       <div class="calendar-day-header">
-        <p>Saturday</p>
+        <p class="week-day">Saturday</p>
         <p id="satdate">mm/dd</p>
       </div>
       <div class="food-area">
-        <p>Steak and Lobster</p>
+        <p class="dish-name"></p>
         <p class="ingredients"></p>
       </div>
     </div>
     <div class="calendar-day" id="sunday">
       <div class="calendar-day-header">
-        <p>Sunday</p>
+        <p class="week-day">Sunday</p>
         <p id="sundate">mm/dd</p>
       </div>
       <div class="food-area">
-        <p>Pizza!</p>
+        <p class="dish-name"></p>
         <p class="ingredients"></p>
       </div>
     </div>
