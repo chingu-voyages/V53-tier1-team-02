@@ -251,20 +251,48 @@ function setDishes() {
 
 
 // Creating ingredient array
-// dishesObj = dishes
-// console.log(typeof dishesObj); // Identifying dishes as object
-// console.log(dishesObj); // Displaying object
-// let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
-// // const {ingredients} = dishes; 
-// console.log(items, items1);
 
-// for (let i = 0; i < dishesObj.length + 1; i++) {
-//     const ingredientsArray = [];
-//     let [ {ingredients: items} ] = dishesObj; 
-//     // ingredientsArray.push(items);
-//     // ingredientsArray.push(i);
-//     console.log(ingredientsArray);
-// }
+        // to protect the original dishes array, dishesObj is created
+        dishesObj = dishes
+        console.log(typeof dishesObj); // Identifying dishes as object
+        console.log(dishesObj); // Displaying object
+
+        // DESTRUCTURING PRACTICE
+        // let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
+        // // items1 ...items50
+        // // loop for add all items in an array 
+        // // filtering for all unique items in that array
+        // // const {ingredients} = dishes; 
+        // console.log(items, items1);
+        
+        // .map is used to pick out all ingredients from each object within the array
+        // .flat() takes all the arrays (50) and compresses them into one COOL feature
+        // (223 total ingredients)
+        const ingredients = dishesObj.map(dish => dish.ingredients).flat()
+        console.log(ingredients);
+
+
+        //loop is used to create a uniqueIngredients array 
+        // (47 unique ingredients)
+        let uniqueIngredients = []
+        for (let i = 0; i < ingredients.length; i++) {
+            if (!uniqueIngredients.includes(ingredients[i])) {
+                uniqueIngredients.push(ingredients[i]);
+            }
+        }
+
+        console.log(uniqueIngredients);
+
+        // LOOP DESTRUCRING PRACTICE 
+        // for (let i = 0; i < dishesObj.length + 1; i++) {
+        //     const ingredientsArray = [];
+        //     // let [ {ingredients: items} ] = dishesObj; 
+        //     // ingredientsArray.push(items);
+        //     ingredientsArray.push(i);
+        //     console.log(ingredientsArray);
+        // }
+
+
 
 
 
@@ -310,13 +338,13 @@ function foodDisplay(weekday, checkedDish) {
 
 //  JSON MENU CODE
 
-// 1.) Use JSON and filter allergens function to create an allergy free array []
+// 1.) Use JSON and filter allergens function to create an allergy free array [] 
 
-// 2.) Generate random dish from allergy free array [pizza, pasta]
+// 2.) Generate random dish from allergy free array [pizza, pasta] 
 
 // 3.) Render random dishes to front screen
 
-
+//original notes
 // function allergyCheck(randomDish){
 //     if(Tree Nuts === true) {
 //         //    does randomDish.ingredients contain wheat||bread||
@@ -340,10 +368,44 @@ function foodDisplay(weekday, checkedDish) {
 //     }
 // }
 
-// Get required info
+
+// edit UPDATED FLAGGED FOODS 
+// function allergyCheck(randomDish){
+//     if(Tree Nuts === true) {
+//         array.includes() // No tree nuts
+//         }
+//     if(Garlic === true) {
+//         array.includes("Garlic")
+//     }
+//     if(Milk === true) {
+//         array.includes("Cream", "Cheese", "butter", "yogurt")
+//     }
+//     if(Gluten === true) {
+//         array.includes("Bread", "Flour", "Pasta")
+//     }
+//     if(Corn === true) {
+//         array.includes("Corn")
+//     }
+//     if(Chocolate === true) {
+//         array.includes("Chocolate")
+//     }
+// }
+
+
+
+// Get required info 
+
 
 // Allergenic ingredients array i.e specific gluten based products such as bread, wheat, flour
 
 // filter for the dishes array correseponding to allergens
 
 // test push
+
+// page load event listener
+// function uniqueIngredients() {
+// const res = await fetch('assets/dishes.json'); //These first two lines call the json. 
+// dishes = await res.json();
+// console.log(dishes);
+
+// }
