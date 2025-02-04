@@ -5,8 +5,11 @@ html {
 }
 
 body {
-    background-color: #B7DCFF66;
+    background-color: #7FB069;
     min-width: 250px;
+    background-image: url("/images/background-stock-photo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -20,22 +23,23 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
-    color: #044F95;
-    background-color: white;
+    color: #473144;
+    background-color: #7FB069;
     font-family: quicksand, sans-serif;
     padding-top: 100px;
 }
 
 h1 {
     font-family: quicksand, sans-serif;
-    font-size: 24pt;
+    font-size: 1.5em;
     padding-left: 30px;
+    /* background-color: #7FB069; */
 }
 
 #dishes-icon {
     width: auto;
     height: 20px;
-    color: #17A1FA;
+    color: #8C1C13;
     margin-right: 30px;
     filter: drop-shadow(0px 3px 2px gray);
 }
@@ -44,8 +48,8 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 40px 30px 30px 30px;
-    background-color: #B7DCFF66;
+    padding: 20px 30px 20px 30px;
+    /* background-color: ; */
 }
 
 .nav-button {
@@ -53,24 +57,27 @@ nav {
 }
 
 #week-display {
-    padding: 0px 30px 30px 30px;
+    padding: 20px 30px 30px 30px;
+    /* background-color: #7FB069; */
+    
 }
 
 .calendar-day {
     border-radius: 5px;
-    background-color: #AFD9FF;
-    color: #044F95 height: 160px;
-    margin-bottom: 10px;
+    background-color: #E7D7C1;
+    color: #473144;
+    height: 160px;
+    margin-bottom: 20px;
 }
 
 .calendar-day-header {
     display: flex;
     justify-content: space-between;
-    font-family: inter, sans-serif;
-    color: #044F95;
+    font-family: quicksand, sans-serif;
+    color: #473144;
     padding-top: 10px;
     margin: 0px 10px;
-    border-bottom: solid #044F95 1px;
+    border-bottom: solid #473144 1px;
 }
 
 .week-day {
@@ -78,8 +85,8 @@ nav {
 }
 
 .food-area {
-    font-family: inter, sans-serif;
-    color: #044F95;
+    font-family: quicksand, sans-serif;
+    color: #473144;
     min-height: 120px;
     margin: 10px;
 }
@@ -95,7 +102,7 @@ nav {
 
 button {
     outline: none;
-    background-color: white;
+    background-color: #BF4342;
     width: 48%;
     height: 50px;
     border-radius: 5px;
@@ -103,7 +110,7 @@ button {
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    color: #044F95;
+    color: #FFFFFF;
     text-align: center;
 }
 
@@ -124,11 +131,11 @@ button:hover {
     border: 1px solid black; 
     border-radius: 10px; 
     z-index: 10;
-    background-color: white; 
+    background-color: #7FB069; 
     height: 315px;
     width: 500px; 
     font-family: quicksand, sans-serif;
-    color: #044F95;
+    color: #473144;
     font-size: 1.2em;
     max-width: 80%;
 }
@@ -155,6 +162,7 @@ button:hover {
     font-weight: bold;
     width: 60px;
     height: 1.2em;
+    color: #473144;
 
 }
 
@@ -188,7 +196,7 @@ button:hover {
 }
 
 .modal-body {
-    background-color: #B7DCFF66;
+    background-color: #E7D7C1;
     height: 165px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -199,7 +207,7 @@ button:hover {
 }
 
 #menu-btn {
-    background-color: #AFD9FF;
+    background-color: #BF4342;
     width: auto;
     margin: 10px 10px 0px 10px;
     padding: 10px 0px;
@@ -225,11 +233,11 @@ button:hover {
 
     nav {
         width: 50%;
-        background-color: white;
+        /* background-color: #7FB069; */
     }
 
     button {
-        background-color: #AFD9FF;
+        background-color: #BF4342;
         font-size: 1.3em;
 
     }
