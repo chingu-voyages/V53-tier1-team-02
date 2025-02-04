@@ -10,9 +10,9 @@ const generateMenuBtn = document.getElementById("menu-btn");
 const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
 let allergiesArray = [];
-let allergiesObject = {}; 
+let allergiesObject = {};
 let allergenicIngredients = {};
-let dishes; 
+let dishes;
 let dishesObj;
 const mondate = document.getElementById("mondate");
 const tuedate = document.getElementById("tuedate");
@@ -107,7 +107,7 @@ form.addEventListener("submit", (e) => {
     // FEATURE Data in object is placed into sepearte arrays
     // console.log(Object.entries(allergiesObject));
 })
-    // console.log(allergiesObject);
+// console.log(allergiesObject);
 
 
 
@@ -220,51 +220,71 @@ function setCalendarDates(mondaysDate) {
 // This function really starts the dish selection process.
 // It runs once for each day of the week.
 function setDishes() {
+    let weekdayDishArray = [];
     for (let i = 0; i < 7; i++) {
-        dishPicker(weekdayArray[i]);
+        getDailyDish(weekdayArray[i], weekdayDishArray);
     }
 }
 
-// This function fetches the dishes json file and passes it on to
-// the next function to randomly pick a dish from those listed. ** use this in conjunction with filter allergies function
-function dishPicker(weekday) {
-    const getDishes = async function () {
+// This function fetches the dishes json file and uses it to initialize an array called dishes. 
+// The dishes array was created as an empty array in the global variables and is populated here. This is so that it can be
+// used globally.
+document.querySelector("body").onload = function () { loadDishes() };
 
-/*************This is where we can modify these two lines to call from a different file once we have a reduced list without allergens. */        
+function loadDishes() {
+    const getDishes = async function () {
         const res = await fetch('assets/dishes.json'); //These first two lines call the json. 
         dishes = await res.json();
         console.log(dishes);
-/******************************************************************************************** */
-// Creating ingredient array
-        // dishesObj = dishes
-        // console.log(typeof dishesObj); // Identifying dishes as object
-        // console.log(dishesObj); // Displaying object
-        // let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
-        // // const {ingredients} = dishes; 
-        // console.log(items, items1);
-        
-        // for (let i = 0; i < dishesObj.length + 1; i++) {
-        //     const ingredientsArray = [];
-        //     let [ {ingredients: items} ] = dishesObj; 
-        //     // ingredientsArray.push(items);
-        //     // ingredientsArray.push(i);
-        //     console.log(ingredientsArray);
-        // }
-
-
-        
-/////////////////////////////////////////////////////////////////////////////////////////////////
-        const randomIndex = Math.floor(Math.random() * dishes.length); //these next lines select a random dish from the json
-        console.log("randomIndex: " + randomIndex); //-----This will be removed for final production
-        const randomDish = (dishes[randomIndex]);
-        console.log(weekday + " dish: " + (randomDish.name)); //-----This will be removed for final production
-
-        foodDisplay(weekday, randomDish);  //This calls the function to display the dishes in the calendar
-    };
+    }
     getDishes();
 }
 
-console.log(dishes);
+
+// Creating ingredient array
+// dishesObj = dishes
+// console.log(typeof dishesObj); // Identifying dishes as object
+// console.log(dishesObj); // Displaying object
+// let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
+// // const {ingredients} = dishes; 
+// console.log(items, items1);
+
+// for (let i = 0; i < dishesObj.length + 1; i++) {
+//     const ingredientsArray = [];
+//     let [ {ingredients: items} ] = dishesObj; 
+//     // ingredientsArray.push(items);
+//     // ingredientsArray.push(i);
+//     console.log(ingredientsArray);
+// }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+// This function randomly picks a dish from the dish array ** use this in conjunction with filter allergies function
+function getDailyDish(weekday, weekdayDishArray) {
+    getRandomDish(weekday)
+    function getRandomDish(weekday) {
+        const randomIndex = Math.floor(Math.random() * dishes.length); //these next lines select a random dish from the dishes array
+        console.log("randomIndex: " + randomIndex); //-----This will be removed for final production
+        const randomDish = (dishes[randomIndex]);
+        console.log(weekday + " dish: " + (randomDish.name)); //-----This will be removed for final production
+        weekdayDishArrayCheck(randomDish);
+    };
+    function weekdayDishArrayCheck(randomDish) {
+        if (weekdayDishArray.includes(randomDish.name)) {
+            console.log(randomDish.name + " is already used. Selecting another.");
+            getRandomDish(weekday);
+        } else {
+            weekdayDishArray.push(randomDish);
+            console.log(randomDish.name + " was added to the week's dishes.");
+            console.log(weekdayDishArray);
+        };
+        foodDisplay(weekday, randomDish);  //This calls the function to display the dishes in the calendar
+    };
+};
+
+
 
 // This function will take a day and dish and display it in the corresponding day of the calendar
 function foodDisplay(weekday, checkedDish) {
@@ -312,7 +332,7 @@ function foodDisplay(weekday, checkedDish) {
 //     }
 // }
 
-// Get required info 
+// Get required info
 
 // Allergenic ingredients array i.e specific gluten based products such as bread, wheat, flour
 
