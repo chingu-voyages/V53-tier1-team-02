@@ -236,23 +236,48 @@ function dishPicker(weekday) {
         console.log(dishes);
 /******************************************************************************************** */
 // Creating ingredient array
-        // dishesObj = dishes
-        // console.log(typeof dishesObj); // Identifying dishes as object
-        // console.log(dishesObj); // Displaying object
+        // to protect the original dishes array, dishesObj is created
+        dishesObj = dishes
+        console.log(typeof dishesObj); // Identifying dishes as object
+        console.log(dishesObj); // Displaying object
+
+        // DESTRUCTURING PRACTICE
         // let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
+        // // items1 ...items50
+        // // loop for add all items in an array 
+        // // filtering for all unique items in that array
         // // const {ingredients} = dishes; 
         // console.log(items, items1);
         
+        // .map is used to pick out all ingredients from each object within the array
+        // .flat() takes all the arrays (50) and compresses them into one COOL feature
+        // (223 total ingredients)
+        const ingredients = dishesObj.map(dish => dish.ingredients).flat()
+        console.log(ingredients);
+
+
+        //loop is used to create a uniqueIngredients array 
+        // (47 unique ingredients)
+        let uniqueIngredients = []
+        for (let i = 0; i < ingredients.length; i++) {
+            if (!uniqueIngredients.includes(ingredients[i])) {
+                uniqueIngredients.push(ingredients[i]);
+            }
+        }
+
+        console.log(uniqueIngredients);
+
+        // LOOP DESTRUCRING PRACTICE 
         // for (let i = 0; i < dishesObj.length + 1; i++) {
         //     const ingredientsArray = [];
-        //     let [ {ingredients: items} ] = dishesObj; 
+        //     // let [ {ingredients: items} ] = dishesObj; 
         //     // ingredientsArray.push(items);
-        //     // ingredientsArray.push(i);
+        //     ingredientsArray.push(i);
         //     console.log(ingredientsArray);
         // }
 
 
-        
+
 /////////////////////////////////////////////////////////////////////////////////////////////////
         const randomIndex = Math.floor(Math.random() * dishes.length); //these next lines select a random dish from the json
         console.log("randomIndex: " + randomIndex); //-----This will be removed for final production
@@ -319,3 +344,11 @@ function foodDisplay(weekday, checkedDish) {
 // filter for the dishes array correseponding to allergens
 
 // test push
+
+// page load event listener
+// function uniqueIngredients() {
+// const res = await fetch('assets/dishes.json'); //These first two lines call the json. 
+// dishes = await res.json();
+// console.log(dishes);
+
+// }
