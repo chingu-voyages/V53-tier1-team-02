@@ -108,7 +108,7 @@ closeModalEmployeeBtn.addEventListener("click", () => {
 // 2.b2) Store allergies in an object (TOP PICK*)
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    allergiesChecked();
+    allergiesRegistered();
     // allergyCheck();
     // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
     //     if (allergy.checked === true) {
@@ -122,9 +122,10 @@ form.addEventListener("submit", (e) => {
     
 })
 
+//STEPS 1.) Convert object to arrays 2.) arrays to one single arrays with keys 3.) use that for the if
 
 // Function that stores allergies in an object
-function allergiesChecked() {
+function allergiesRegistered() {
     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
         if (allergy.checked === true) {
             allergiesObject[allergy.value] = true;
@@ -133,9 +134,35 @@ function allergiesChecked() {
         }
     })
     console.log(allergiesObject);
+    console.log(allergiesObject.Garlic);
+    allergyCheck();
     // FEATURE Data in object is placed into sepearte arrays
     // console.log(Object.entries(allergiesObject));
 }
+
+// edit UPDATED FLAGGED FOODS 
+function allergyCheck(){
+    // if(Tree Nuts === true) {
+    //      // No tree nuts
+    //     }
+    if(allergiesObject.Garlic === true) {
+        allergenicIngredients.push("Garlic");
+    }
+    if(allergiesObject.Milk === true) {
+        allergenicIngredients.push("Cream", "Cheese", "butter", "yogurt")
+    }
+    if(allergiesObject.Gluten === true) {
+        allergenicIngredients.push("Bread", "Flour", "Pasta")
+    }
+    if(allergiesObject.Corn === true) {
+        allergenicIngredients.push("Corn")
+    }
+    if(allergiesObject.Chocolate === true) {
+        allergenicIngredients.push("Chocolate")
+    }
+     console.log(allergenicIngredients); 
+}
+
 
 
 // I have temporarily made the dish icon call the function to generate
@@ -383,28 +410,7 @@ function foodDisplay(weekday, checkedDish) {
 // }
 
 
-// edit UPDATED FLAGGED FOODS 
-function allergyCheck(){
-    // if(Tree Nuts === true) {
-    //      // No tree nuts
-    //     }
-    if(Garlic === true) {
-        allergenicIngredients.push("Garlic");
-    }
-    if(Milk === true) {
-        allergenicIngredients.push("Cream", "Cheese", "butter", "yogurt")
-    }
-    if(Gluten === true) {
-        allergenicIngredients.push("Bread", "Flour", "Pasta")
-    }
-    if(Corn === true) {
-        allergenicIngredients.push("Corn")
-    }
-    if(Chocolate === true) {
-        allergenicIngredients.push("Chocolate")
-    }
-     console.log(allergenicIngredients); 
-}
+
 
 
 
