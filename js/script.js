@@ -142,6 +142,9 @@ function allergiesRegistered() {
 
 // edit UPDATED FLAGGED FOODS 
 function allergyCheck(){
+    if(allergenicIngredients.length > 0) {
+        allergenicIngredients = [];
+    }
     // if(Tree Nuts === true) {
     //      // No tree nuts
     //     }
@@ -160,7 +163,7 @@ function allergyCheck(){
     if(allergiesObject.Chocolate === true) {
         allergenicIngredients.push("Chocolate")
     }
-     console.log(allergenicIngredients); 
+    console.log(allergenicIngredients);
 }
 
 
