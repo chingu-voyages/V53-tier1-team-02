@@ -36,9 +36,33 @@ function loadDishes() {
         const res = await fetch('assets/dishes.json'); //These two lines call the json. 
         dishes = await res.json();
         console.log(dishes);
+
+    // to protect the original dishes array, dishesObj is created
+    dishesObj = dishes
+    console.log(typeof dishesObj); // Identifying dishes as object
+    console.log(dishesObj); // Displaying object
+
+     // .map is used to pick out all ingredients from each object within the array
+     // .flat() takes all the arrays (50) and compresses them into one, COOL feature
+     // (223 total ingredients)
+     const ingredients = dishesObj.map(dish => dish.ingredients).flat()
+     console.log(ingredients);
+
+
+    //loop is used to create a uniqueIngredients array 
+    // (47 unique ingredients)
+    let uniqueIngredients = []
+    for (let i = 0; i < ingredients.length; i++) {
+        if (!uniqueIngredients.includes(ingredients[i])) {
+            uniqueIngredients.push(ingredients[i]);
+        }
+    }
+    console.log(uniqueIngredients);
     }
     getDishes();
+
     
+
 }
 
 
@@ -297,9 +321,9 @@ function setDishes() {
 // Creating ingredient array
 
         // to protect the original dishes array, dishesObj is created
-        dishesObj = dishes
-        console.log(typeof dishesObj); // Identifying dishes as object
-        console.log(dishesObj); // Displaying object
+        // dishesObj = dishes
+        // console.log(typeof dishesObj); // Identifying dishes as object
+        // console.log(dishesObj); // Displaying object
 
         // DESTRUCTURING PRACTICE
         // let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
@@ -312,20 +336,20 @@ function setDishes() {
         // .map is used to pick out all ingredients from each object within the array
         // .flat() takes all the arrays (50) and compresses them into one COOL feature
         // (223 total ingredients)
-        const ingredients = dishesObj.map(dish => dish.ingredients).flat()
-        console.log(ingredients);
+        // const ingredients = dishesObj.map(dish => dish.ingredients).flat()
+        // console.log(ingredients);
 
 
         //loop is used to create a uniqueIngredients array 
         // (47 unique ingredients)
-        let uniqueIngredients = []
-        for (let i = 0; i < ingredients.length; i++) {
-            if (!uniqueIngredients.includes(ingredients[i])) {
-                uniqueIngredients.push(ingredients[i]);
-            }
-        }
+        // let uniqueIngredients = []
+        // for (let i = 0; i < ingredients.length; i++) {
+        //     if (!uniqueIngredients.includes(ingredients[i])) {
+        //         uniqueIngredients.push(ingredients[i]);
+        //     }
+        // }
 
-        console.log(uniqueIngredients);
+        // console.log(uniqueIngredients);
 
         // LOOP DESTRUCRING PRACTICE 
         // for (let i = 0; i < dishesObj.length + 1; i++) {
