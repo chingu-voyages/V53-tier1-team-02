@@ -14,6 +14,7 @@ let allergiesObject = {};
 let allergenicIngredients = [];
 let dishes = [];
 let dishesObj;
+let dishesScreened;
 const mondate = document.getElementById("mondate");
 const tuedate = document.getElementById("tuedate");
 const weddate = document.getElementById("weddate");
@@ -42,9 +43,9 @@ function loadDishes() {
     console.log(typeof dishesObj); // Identifying dishes as object
     console.log(dishesObj); // Displaying object
 
-     // .map is used to pick out all ingredients from each object within the array
-     // .flat() takes all the arrays (50) and compresses them into one, COOL feature
-     // (223 total ingredients)
+    // .map is used to pick out all ingredients from each object within the array
+    // .flat() takes all the arrays (50) and compresses them into one, COOL feature
+    // (223 total ingredients)
      const ingredients = dishesObj.map(dish => dish.ingredients).flat()
      console.log(ingredients);
 
@@ -190,7 +191,10 @@ function allergyCheck(){
     console.log(allergenicIngredients);
 }
 
-
+function allergyScreen() {
+    dishesScreened = array.filter(ing => !allergenicIngredients.includes(ing));
+    console.log(dishesScreened);
+}; 
 
 // I have temporarily made the dish icon call the function to generate
 // dishes to help during development.
