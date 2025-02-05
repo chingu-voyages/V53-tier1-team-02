@@ -11,7 +11,7 @@ const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
 let allergiesArray = [];
 let allergiesObject = {};
-let allergenicIngredients = {};
+let allergenicIngredients = [];
 let dishes = [];
 let dishesObj;
 const mondate = document.getElementById("mondate");
@@ -38,6 +38,7 @@ function loadDishes() {
         console.log(dishes);
     }
     getDishes();
+    
 }
 
 
@@ -107,7 +108,23 @@ closeModalEmployeeBtn.addEventListener("click", () => {
 // 2.b2) Store allergies in an object (TOP PICK*)
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    allergiesChecked();
+    // allergyCheck();
+    // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
+    //     if (allergy.checked === true) {
+    //         allergiesObject[allergy.value] = true;
+    //     } else if (allergy.checked === false) {
+    //         allergiesObject[allergy.value] = false;
+    //     }
+    // })
 
+    // console.log(allergiesObject);
+    
+})
+
+
+// Function that stores allergies in an object
+function allergiesChecked() {
     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
         if (allergy.checked === true) {
             allergiesObject[allergy.value] = true;
@@ -115,13 +132,10 @@ form.addEventListener("submit", (e) => {
             allergiesObject[allergy.value] = false;
         }
     })
-
     console.log(allergiesObject);
     // FEATURE Data in object is placed into sepearte arrays
     // console.log(Object.entries(allergiesObject));
-})
-// console.log(allergiesObject);
-
+}
 
 
 // I have temporarily made the dish icon call the function to generate
@@ -370,26 +384,27 @@ function foodDisplay(weekday, checkedDish) {
 
 
 // edit UPDATED FLAGGED FOODS 
-// function allergyCheck(randomDish){
-//     if(Tree Nuts === true) {
-//         array.includes() // No tree nuts
-//         }
-//     if(Garlic === true) {
-//         array.includes("Garlic")
-//     }
-//     if(Milk === true) {
-//         array.includes("Cream", "Cheese", "butter", "yogurt")
-//     }
-//     if(Gluten === true) {
-//         array.includes("Bread", "Flour", "Pasta")
-//     }
-//     if(Corn === true) {
-//         array.includes("Corn")
-//     }
-//     if(Chocolate === true) {
-//         array.includes("Chocolate")
-//     }
-// }
+function allergyCheck(){
+    // if(Tree Nuts === true) {
+    //      // No tree nuts
+    //     }
+    if(Garlic === true) {
+        allergenicIngredients.push("Garlic");
+    }
+    if(Milk === true) {
+        allergenicIngredients.push("Cream", "Cheese", "butter", "yogurt")
+    }
+    if(Gluten === true) {
+        allergenicIngredients.push("Bread", "Flour", "Pasta")
+    }
+    if(Corn === true) {
+        allergenicIngredients.push("Corn")
+    }
+    if(Chocolate === true) {
+        allergenicIngredients.push("Chocolate")
+    }
+     console.log(allergenicIngredients); 
+}
 
 
 
