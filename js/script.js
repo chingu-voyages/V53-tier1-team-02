@@ -147,7 +147,7 @@ form.addEventListener("submit", (e) => {
     
 })
 
-//STEPS 1.) Convert object to arrays 2.) arrays to one single arrays with keys 3.) use that for the if
+
 
 // Function that stores allergies in an object
 function allergiesRegistered() {
@@ -235,6 +235,8 @@ dateInput.addEventListener("input", () => {
     }
 });
 
+
+
 // This is the function that checks if the entered date is valid
 // by making sure it's equal to or greater than today.
 function isValidDate(date) {
@@ -257,6 +259,10 @@ generateMenuBtn.addEventListener("click", () => {
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
 });
+
+
+// Days off
+
 
 // This function will take the date that is passed to it and find the 
 // date of the Monday of that dates's week. This is assuming the week
