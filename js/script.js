@@ -154,6 +154,8 @@ checkboxes.forEach(checkbox => {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     allergiesRegistered();
+    const modal = document.querySelector(".modal.active");
+    closeModal(modal);
     // allergyCheck();
     // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
     //     if (allergy.checked === true) {
