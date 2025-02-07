@@ -13,6 +13,7 @@ let allergiesArray = [];
 let allergiesObject = {};
 let allergenicIngredients = [];
 let dishes = [];
+// let daysOffObj = {}; 
 let dishesObj;
 let dishesScreened;
 const mondate = document.getElementById("mondate");
@@ -257,11 +258,46 @@ generateMenuBtn.addEventListener("click", () => {
     setCalendarDates(mondaysDate);
     setDishes();
     const modal = document.querySelector(".modal.active");
+    // daysOffRegistered(); // NEW CODE **
     closeModal(modal);
 });
 
+// generateMenuBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     daysOffRegistered();
+// })
 
-// Days off
+// // Days off function
+// function daysOffRegistered() {
+//     daysOffDiv.forEach(day => {
+//         if (day.checked === true) {
+//             daysOffObj[day.value] = true;
+//         } else if (allergy.checked === false) {
+//             daysOffObj[day.value] = false;
+//         }
+//     })
+//     console.log(daysOffObj)
+// }
+
+// console.log(form); 
+// console.log(daysOffDiv);
+
+// // Function that stores allergies in an object
+// function allergiesRegistered() {
+//     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
+//         if (allergy.checked === true) {
+//             allergiesObject[allergy.value] = true;
+//         } else if (allergy.checked === false) {
+//             allergiesObject[allergy.value] = false;
+//         }
+//     })
+//     console.log(allergiesObject);
+//     console.log(allergiesObject.Garlic);
+//     allergyCheck();
+//     // FEATURE Data in object is placed into sepearte arrays
+//     // console.log(Object.entries(allergiesObject));
+// }
+
 
 
 // This function will take the date that is passed to it and find the 
