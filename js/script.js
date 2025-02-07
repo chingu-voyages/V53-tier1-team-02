@@ -7,15 +7,17 @@ const scheduleModalDiv = document.getElementById("schedule-modal");
 const employeeModalDiv = document.getElementById("employee-modal");
 const form = document.querySelector("form")
 const generateMenuBtn = document.getElementById("menu-btn");
+const allergiesButton = document.getElementById("allergies-btn");
 const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
 let allergiesArray = [];
-let allergiesObject = {};
+let allergiesObject = {Treenuts: false, Garlic: false, Milk: false, Gluten: false, Corn: false, Chocolate: false};
 let allergenicIngredients = [];
 let dishes = [];
 // let daysOffObj = {}; 
 let dishesObj;
 let dishesScreened;
+let allergenScreenedDishes = [];
 const mondate = document.getElementById("mondate");
 const tuedate = document.getElementById("tuedate");
 const weddate = document.getElementById("weddate");
@@ -23,13 +25,16 @@ const thurdate = document.getElementById("thurdate");
 const fridate = document.getElementById("fridate");
 const satdate = document.getElementById("satdate");
 const sundate = document.getElementById("sundate");
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
 
 // This line runs once when the page loads and runs the function "loadDishes"
-document.querySelector("body").onload = function () { loadDishes() };
+document.querySelector("body").onload = function () {
+    loadDishes()
+};
 
 // This function calls the pre-saved json file so that the info is available in the form of an array for use
 // in later functions.
@@ -37,34 +42,31 @@ function loadDishes() {
     const getDishes = async function () {
         const res = await fetch('assets/dishes.json'); //These two lines call the json. 
         dishes = await res.json();
-        console.log(dishes);
+        // console.log(dishes);
 
-    // to protect the original dishes array, dishesObj is created
-    dishesObj = dishes
-    console.log(typeof dishesObj); // Identifying dishes as object
-    console.log(dishesObj); // Displaying object
+        // to protect the original dishes array, dishesObj is created
+        dishesObj = dishes;
+        // console.log(typeof dishesObj); // Identifying dishes as object
+        // console.log(dishesObj); // Displaying object
 
-    // .map is used to pick out all ingredients from each object within the array
-    // .flat() takes all the arrays (50) and compresses them into one, COOL feature
-    // (223 total ingredients)
-     const ingredients = dishesObj.map(dish => dish.ingredients).flat()
-     console.log(ingredients);
+        // .map is used to pick out all ingredients from each object within the array
+        // .flat() takes all the arrays (50) and compresses them into one, COOL feature
+        // (223 total ingredients)
+        const ingredients = dishesObj.map(dish => dish.ingredients).flat();
+        // console.log(ingredients);
 
 
-    //loop is used to create a uniqueIngredients array 
-    // (47 unique ingredients)
-    let uniqueIngredients = []
-    for (let i = 0; i < ingredients.length; i++) {
-        if (!uniqueIngredients.includes(ingredients[i])) {
-            uniqueIngredients.push(ingredients[i]);
+        //loop is used to create a uniqueIngredients array 
+        // (47 unique ingredients)
+        let uniqueIngredients = []
+        for (let i = 0; i < ingredients.length; i++) {
+            if (!uniqueIngredients.includes(ingredients[i])) {
+                uniqueIngredients.push(ingredients[i]);
+            }
         }
-    }
-    console.log(uniqueIngredients);
+        // console.log(uniqueIngredients);
     }
     getDishes();
-
-    
-
 }
 
 
@@ -109,6 +111,7 @@ overlay.addEventListener("click", () => {
 // 2.) Employee Modal Functionality
 employeeBtn.addEventListener("click", () => {
     openModal(employeeModalDiv);
+    setCheckBoxes();
 })
 
 closeModalEmployeeBtn.addEventListener("click", () => {
@@ -131,10 +134,29 @@ closeModalEmployeeBtn.addEventListener("click", () => {
 //     console.log(allergiesArray);
 // })
 
+function setCheckBoxes() {
+    console.log(allergiesObject)
+    document.getElementById("tree-nuts").checked = (allergiesObject.Treenuts);
+    document.getElementById("garlic").checked = (allergiesObject.Garlic);
+    document.getElementById("milk").checked = (allergiesObject.Milk);
+    document.getElementById("gluten").checked = (allergiesObject.Gluten);
+    document.getElementById("corn").checked = (allergiesObject.Corn);
+    document.getElementById("chocolate").checked = (allergiesObject.Chocolate);
+};
+
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      // Do something when the checkbox state changes
+     console.log("checkbox change");
+    });
+  });
+
 // 2.b2) Store allergies in an object (TOP PICK*)
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     allergiesRegistered();
+    const modal = document.querySelector(".modal.active");
+    closeModal(modal);
     // allergyCheck();
     // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
     //     if (allergy.checked === true) {
@@ -145,39 +167,38 @@ form.addEventListener("submit", (e) => {
     // })
 
     // console.log(allergiesObject);
-    
-})
+
+});
 
 
 
 // Function that stores allergies in an object
 function allergiesRegistered() {
     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
-        if (allergy.checked === true) {
+        if (allergy.checked) {
             allergiesObject[allergy.value] = true;
-        } else if (allergy.checked === false) {
+        } else if (!allergy.checked) {
             allergiesObject[allergy.value] = false;
-        }
-    })
+        };
+    });
     console.log(allergiesObject);
-    console.log(allergiesObject.Garlic);
+    // console.log(allergiesObject.Garlic);
     allergyCheck();
     // FEATURE Data in object is placed into sepearte arrays
     // console.log(Object.entries(allergiesObject));
-}
+};
 
 // edit UPDATED FLAGGED FOODS 
-function allergyCheck(){
+function allergyCheck() {
     allergenicIngredients = [];
-    
-    // if(Tree Nuts === true) {
-    //      // No tree nuts
-    //     }
-    if(allergiesObject.Garlic === true) {
+    if (allergiesObject.Treenuts === true) {
+        // No tree nuts
+    }
+    if (allergiesObject.Garlic === true) {
         allergenicIngredients.push("Garlic");
     }
-    if(allergiesObject.Milk === true) {
-        allergenicIngredients.push("Cream", "Cheese", "butter", "yogurt")
+    if (allergiesObject.Milk === true) {
+        allergenicIngredients.push("Milk", "Cream", "Cheese", "Butter", "Yogurt")
     }
     if(allergiesObject.Gluten === true) {
         allergenicIngredients.push("Bread", "Flour", "Pasta")
@@ -189,18 +210,40 @@ function allergyCheck(){
         allergenicIngredients.push("Chocolate")
     }
     console.log(allergenicIngredients);
-}
+    removeAllergens();
+};
 
-function allergyScreen() {
-    dishesScreened = array.filter(ing => !allergenicIngredients.includes(ing));
-    console.log(dishesScreened);
-}; 
+// function allergyScreen() {
+//     dishesScreened = array.filter(ing => !allergenicIngredients.includes(ing));
+//     console.log(dishesScreened);
+// };
+
+function removeAllergens() {
+    allergenScreenedDishes = [];
+    function containsAny(arr1, arr2) {
+        return arr1.some(item => arr2.includes(item));
+    }
+    for (let i = 0; i < dishes.length; i++) {
+        let testIngredients = dishes[i].ingredients;
+        // console.log(testIngredients)
+        // console.log(allergenicIngredients)
+        // console.log(dishes[i].name);
+        // console.log(containsAny(testIngredients, allergenicIngredients));
+        if (containsAny(testIngredients, allergenicIngredients)) {
+        } else {
+            allergenScreenedDishes.push(dishes[i]);
+        }
+        // console.log(containsAny(dishes[i], allergiesObject));
+    }
+    console.log(allergenScreenedDishes);
+    setDishes();
+};
 
 // I have temporarily made the dish icon call the function to generate
 // dishes to help during development.
 dishIcon.addEventListener("click", () => {
-    setDishes();
-})
+    removeAllergens();
+});
 
 // Opens modal
 function openModal(modal) {
@@ -256,7 +299,7 @@ generateMenuBtn.addEventListener("click", () => {
     const dateInput = new Date(dateAsInput + 'T00:00');
     const mondaysDate = findMonday(dateInput);
     setCalendarDates(mondaysDate);
-    setDishes();
+    removeAllergens();
     const modal = document.querySelector(".modal.active");
     // daysOffRegistered(); // NEW CODE **
     closeModal(modal);
@@ -417,19 +460,19 @@ function setDishes() {
 function getDailyDish(weekday, weekdayDishArray) {
     getRandomDish(weekday)
     function getRandomDish(weekday) {
-        const randomIndex = Math.floor(Math.random() * dishes.length); //these next lines select a random dish from the dishes array
-        const randomDish = (dishes[randomIndex]);
-        console.log(weekday + " dish: " + (randomDish.name)); //-----This will be removed for final production
+        const randomIndex = Math.floor(Math.random() * allergenScreenedDishes.length); //these next lines select a random dish from the dishes array
+        const randomDish = (allergenScreenedDishes[randomIndex]);
+        // console.log(weekday + " dish: " + (randomDish.name)); //-----This will be removed for final production
         repetitionCheck(randomDish);
     };
     function repetitionCheck(randomDish) {
         /* The .some() function is used to check if the passed dish's name is already contained in the array of already-selected dishes */
         if (weekdayDishArray.some(weekdayDishArray => weekdayDishArray.name == randomDish.name)) {
-            console.warn(randomDish.name + " is already used. Selecting another.");
+            // console.warn(randomDish.name + " is already used. Selecting another.");
             getRandomDish(weekday); //If the dish that was randomly selected has the same name as a dish already previously selected for the week, this line will re-start the selection to randomly select another.
         } else {
-            weekdayDishArray.push(randomDish); //This line will add the randomly selected dish to an array of dishes that have been selected for the week.
-            console.log(randomDish.name + " was added to the week's dishes."); /* Can be removed for final production */
+            weekdayDishArray.push(randomDish); //This line will add the randomly selected dish to an array of allergen screened dishes that have been selected for the week.
+            // console.log(randomDish.name + " was added to the week's dishes."); /* Can be removed for final production */
             foodDisplay(weekday, randomDish);  //This calls the function to display the dishes in the calendar
         };
     };
