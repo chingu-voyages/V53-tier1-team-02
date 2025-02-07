@@ -14,6 +14,7 @@ let allergiesArray = [];
 let allergiesObject = {Treenuts: false, Garlic: false, Milk: false, Gluten: false, Corn: false, Chocolate: false};
 let allergenicIngredients = [];
 let dishes = [];
+// let daysOffObj = {}; 
 let dishesObj;
 let dishesScreened;
 let allergenScreenedDishes = [];
@@ -43,6 +44,7 @@ function loadDishes() {
         dishes = await res.json();
         // console.log(dishes);
 
+
         // to protect the original dishes array, dishesObj is created
         dishesObj = dishes;
         // console.log(typeof dishesObj); // Identifying dishes as object
@@ -55,13 +57,12 @@ function loadDishes() {
         // console.log(ingredients);
 
 
-        //loop is used to create a uniqueIngredients array 
-        // (47 unique ingredients)
-        let uniqueIngredients = []
-        for (let i = 0; i < ingredients.length; i++) {
-            if (!uniqueIngredients.includes(ingredients[i])) {
-                uniqueIngredients.push(ingredients[i]);
-            }
+    //loop is used to create a uniqueIngredients array 
+    // (47 unique ingredients)
+    let uniqueIngredients = []
+    for (let i = 0; i < ingredients.length; i++) {
+        if (!uniqueIngredients.includes(ingredients[i])) {
+            uniqueIngredients.push(ingredients[i]);
         }
         // console.log(uniqueIngredients);
     }
@@ -167,9 +168,10 @@ form.addEventListener("submit", (e) => {
 
     // console.log(allergiesObject);
 
+
 });
 
-//STEPS 1.) Convert object to arrays 2.) arrays to one single arrays with keys 3.) use that for the if
+
 
 // Function that stores allergies in an object
 function allergiesRegistered() {
@@ -178,6 +180,7 @@ function allergiesRegistered() {
             allergiesObject[allergy.value] = true;
         } else if (!allergy.checked) {
             allergiesObject[allergy.value] = false;
+
         };
     });
     console.log(allergiesObject);
@@ -188,6 +191,7 @@ function allergiesRegistered() {
 };
 
 // edit UPDATED FLAGGED FOODS 
+
 function allergyCheck() {
     allergenicIngredients = [];
     if (allergiesObject.Treenuts === true) {
@@ -199,16 +203,17 @@ function allergyCheck() {
     if (allergiesObject.Milk === true) {
         allergenicIngredients.push("Milk", "Cream", "Cheese", "Butter", "Yogurt")
     }
-    if (allergiesObject.Gluten === true) {
+    if(allergiesObject.Gluten === true) {
         allergenicIngredients.push("Bread", "Flour", "Pasta")
     }
-    if (allergiesObject.Corn === true) {
+    if(allergiesObject.Corn === true) {
         allergenicIngredients.push("Corn")
     }
-    if (allergiesObject.Chocolate === true) {
+    if(allergiesObject.Chocolate === true) {
         allergenicIngredients.push("Chocolate")
     }
     console.log(allergenicIngredients);
+
     removeAllergens();
 };
 
@@ -278,6 +283,8 @@ dateInput.addEventListener("input", () => {
     }
 });
 
+
+
 // This is the function that checks if the entered date is valid
 // by making sure it's equal to or greater than today.
 function isValidDate(date) {
@@ -298,8 +305,47 @@ generateMenuBtn.addEventListener("click", () => {
     setCalendarDates(mondaysDate);
     removeAllergens();
     const modal = document.querySelector(".modal.active");
+    // daysOffRegistered(); // NEW CODE **
     closeModal(modal);
 });
+
+// generateMenuBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     daysOffRegistered();
+// })
+
+// // Days off function
+// function daysOffRegistered() {
+//     daysOffDiv.forEach(day => {
+//         if (day.checked === true) {
+//             daysOffObj[day.value] = true;
+//         } else if (allergy.checked === false) {
+//             daysOffObj[day.value] = false;
+//         }
+//     })
+//     console.log(daysOffObj)
+// }
+
+// console.log(form); 
+// console.log(daysOffDiv);
+
+// // Function that stores allergies in an object
+// function allergiesRegistered() {
+//     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
+//         if (allergy.checked === true) {
+//             allergiesObject[allergy.value] = true;
+//         } else if (allergy.checked === false) {
+//             allergiesObject[allergy.value] = false;
+//         }
+//     })
+//     console.log(allergiesObject);
+//     console.log(allergiesObject.Garlic);
+//     allergyCheck();
+//     // FEATURE Data in object is placed into sepearte arrays
+//     // console.log(Object.entries(allergiesObject));
+// }
+
+
 
 // This function will take the date that is passed to it and find the 
 // date of the Monday of that dates's week. This is assuming the week
@@ -366,45 +412,45 @@ function setDishes() {
 
 // Creating ingredient array
 
-// to protect the original dishes array, dishesObj is created
-// dishesObj = dishes
-// console.log(typeof dishesObj); // Identifying dishes as object
-// console.log(dishesObj); // Displaying object
+        // to protect the original dishes array, dishesObj is created
+        // dishesObj = dishes
+        // console.log(typeof dishesObj); // Identifying dishes as object
+        // console.log(dishesObj); // Displaying object
 
-// DESTRUCTURING PRACTICE
-// let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
-// // items1 ...items50
-// // loop for add all items in an array 
-// // filtering for all unique items in that array
-// // const {ingredients} = dishes; 
-// console.log(items, items1);
+        // DESTRUCTURING PRACTICE
+        // let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
+        // // items1 ...items50
+        // // loop for add all items in an array 
+        // // filtering for all unique items in that array
+        // // const {ingredients} = dishes; 
+        // console.log(items, items1);
+        
+        // .map is used to pick out all ingredients from each object within the array
+        // .flat() takes all the arrays (50) and compresses them into one COOL feature
+        // (223 total ingredients)
+        // const ingredients = dishesObj.map(dish => dish.ingredients).flat()
+        // console.log(ingredients);
 
-// .map is used to pick out all ingredients from each object within the array
-// .flat() takes all the arrays (50) and compresses them into one COOL feature
-// (223 total ingredients)
-// const ingredients = dishesObj.map(dish => dish.ingredients).flat()
-// console.log(ingredients);
 
+        //loop is used to create a uniqueIngredients array 
+        // (47 unique ingredients)
+        // let uniqueIngredients = []
+        // for (let i = 0; i < ingredients.length; i++) {
+        //     if (!uniqueIngredients.includes(ingredients[i])) {
+        //         uniqueIngredients.push(ingredients[i]);
+        //     }
+        // }
 
-//loop is used to create a uniqueIngredients array 
-// (47 unique ingredients)
-// let uniqueIngredients = []
-// for (let i = 0; i < ingredients.length; i++) {
-//     if (!uniqueIngredients.includes(ingredients[i])) {
-//         uniqueIngredients.push(ingredients[i]);
-//     }
-// }
+        // console.log(uniqueIngredients);
 
-// console.log(uniqueIngredients);
-
-// LOOP DESTRUCRING PRACTICE 
-// for (let i = 0; i < dishesObj.length + 1; i++) {
-//     const ingredientsArray = [];
-//     // let [ {ingredients: items} ] = dishesObj; 
-//     // ingredientsArray.push(items);
-//     ingredientsArray.push(i);
-//     console.log(ingredientsArray);
-// }
+        // LOOP DESTRUCRING PRACTICE 
+        // for (let i = 0; i < dishesObj.length + 1; i++) {
+        //     const ingredientsArray = [];
+        //     // let [ {ingredients: items} ] = dishesObj; 
+        //     // ingredientsArray.push(items);
+        //     ingredientsArray.push(i);
+        //     console.log(ingredientsArray);
+        // }
 
 
 
@@ -452,9 +498,9 @@ function foodDisplay(weekday, checkedDish) {
 
 //  JSON MENU CODE
 
-// 1.) Use JSON and filter allergens function to create an allergy free array []
+// 1.) Use JSON and filter allergens function to create an allergy free array [] 
 
-// 2.) Generate random dish from allergy free array [pizza, pasta]
+// 2.) Generate random dish from allergy free array [pizza, pasta] 
 
 // 3.) Render random dishes to front screen
 
@@ -487,7 +533,7 @@ function foodDisplay(weekday, checkedDish) {
 
 
 
-// Get required info
+// Get required info 
 
 
 // Allergenic ingredients array i.e specific gluten based products such as bread, wheat, flour
@@ -498,7 +544,7 @@ function foodDisplay(weekday, checkedDish) {
 
 // page load event listener
 // function uniqueIngredients() {
-// const res = await fetch('assets/dishes.json'); //These first two lines call the json.
+// const res = await fetch('assets/dishes.json'); //These first two lines call the json. 
 // dishes = await res.json();
 // console.log(dishes);
 
