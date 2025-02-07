@@ -71,7 +71,7 @@ nav {
 using the opacity property without making other elements opaque also.
 The position: absolute used in combination with position:relative of the 
 elements on top of the background image is key. */
-body:before {
+html:before {
     content: ' ';
     display: block;
     position: absolute;
