@@ -7,9 +7,9 @@ html {
 body {
     background-color: #7FB069;
     min-width: 250px;
-    background-image: url("/images/background-stock-photo.jpg");
+    /* background-image: url("/images/background-stock-photo.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 /* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -41,7 +41,7 @@ h1 {
     height: 20px;
     color: #8C1C13;
     margin-right: 30px;
-    filter: drop-shadow(0px 3px 2px gray);
+    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
 }
 
 nav {
@@ -53,21 +53,44 @@ nav {
 }
 
 .nav-button {
-    filter: drop-shadow(0px 3px 2px gray);
+    filter: drop-shadow(0px 3px 2px rgb(68, 68, 68));
 }
 
 #week-display {
     padding: 20px 30px 30px 30px;
+    position: relative;
     /* background-color: #7FB069; */
-    
+
+}
+
+/* This block sets the background image behind the other content and allows 
+using the opacity property without making other elements opaque also.
+The position: absolute used in combination with position:relative of the 
+elements on top of the background image is key. */
+#week-display:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+    background-image: url("/images/background-stock-photo.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    z-index: 1;
 }
 
 .calendar-day {
+    position: relative;
     border-radius: 5px;
     background-color: #E7D7C1;
     color: #473144;
     height: 160px;
     margin-bottom: 20px;
+    z-index: 2;
 }
 
 .calendar-day-header {
@@ -112,6 +135,7 @@ button {
     line-height: 22px;
     color: #FFFFFF;
     text-align: center;
+    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
 }
 
 button:hover {
@@ -126,14 +150,14 @@ button:hover {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0); 
+    transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
-    border: 1px solid black; 
-    border-radius: 10px; 
+    border: 1px solid black;
+    border-radius: 10px;
     z-index: 10;
-    background-color: #7FB069; 
-    height: 315px;
-    width: 500px; 
+    background-color: #7FB069;
+    height: auto;
+    width: 500px;
     font-family: quicksand, sans-serif;
     color: #473144;
     font-size: 1.2em;
@@ -144,43 +168,57 @@ button:hover {
     transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-date, .modal-allergy-checkbox{
-    padding: 10px 15px; 
-    display: flex; 
-    justify-content: space-between; 
+.modal-date {
+    padding: 40px 30px 20px 30px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.close-button, .close-button-employee{
-    cursor: pointer; 
+.modal-allergy-checkbox {
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.close-button,
+.close-button-employee {
+    cursor: pointer;
     border: none;
     outline: none;
     background: none;
     font-size: 1.75rem;
     font-weight: bold;
-    width: 60px;
+    width: 50px;
     height: 1.2em;
     color: #473144;
+    padding-bottom: 20px;
+    padding-right: 13px;
 
 }
 
 #overlay {
-    position: fixed; 
+    position: fixed;
     opacity: 0;
     transition: 200ms ease-in-out;
     top: 0;
-    left: 0; 
+    left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
 }
 
 #overlay.active {
     pointer-events: all;
-    opacity: 1; 
+    opacity: 1;
+    z-index: 5;
 }
 
 .modal-header {
@@ -192,31 +230,38 @@ button:hover {
 
 .modal-header h1 {
     font-size: 1.2em;
-    padding-left: 10px;
+    padding-left: 30px;
+    padding-bottom: 20px;
 }
 
 .modal-body {
     background-color: #E7D7C1;
-    height: 165px;
+    height: auto;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 #menu-btn {
     background-color: #BF4342;
     width: auto;
-    margin: 10px 10px 0px 10px;
+    margin: 10px 30px 30px 30px;
     padding: 10px 0px;
     height: 1.5em;
     /* #calendar-entry:invalid::{color red}
     #calendar-entry:valid::{color #044F95} */
 }
 
+.employee-modal-section-title {
+    margin: 10px 20px 0px 30px;
+    border-bottom: solid #473144 1px;
+}
 
+#allergies-btn {
+    margin: 10px 30px 30px 30px;
+}
 
 
 
@@ -233,7 +278,6 @@ button:hover {
 
     nav {
         width: 50%;
-        /* background-color: #7FB069; */
     }
 
     button {
@@ -273,21 +317,21 @@ button:hover {
     Style adjustments for desktops
     DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
 
-button { 
-    font-size: 1.6em;
-}
+    button {
+        font-size: 1.6em;
+    }
 
     .calendar-day {
-    width: 30%;
-}
+        width: 30%;
+    }
 
-.calendar-day-header {
-    font-size: 1.6em;
-}
+    .calendar-day-header {
+        font-size: 1.6em;
+    }
 
-.food-area {
-    font-size: 1.4em;
-}
+    .food-area {
+        font-size: 1.4em;
+    }
 }
 
 /* ==========================================================================
