@@ -484,8 +484,10 @@ function foodDisplay(weekday, checkedDish) {
     // console.log((checkedDishIngredients)); //-----This will be removed for final production
     let dayDish = document.querySelector(`#${weekday} .dish-name`);
     let dayIngredients = document.querySelector(`#${weekday} .ingredients`);
+    let dayCalories = document.querySelector(`#${weekday} .calories-number`);
     dayDish.textContent = (checkedDish.name);
     dayIngredients.textContent = ("Ingredients: " + checkedDishIngredients);
+    dayCalories.textContent = (`${checkedDish.calories} cal`)
 }
 
 // function allergyCheck(randomDish) {

@@ -2,14 +2,13 @@ html {
     color: #222;
     font-size: 1rem;
     line-height: 1.4;
-}
+    }
 
 body {
-    background-color: #7FB069;
     min-width: 250px;
-    /* background-image: url("/images/background-stock-photo.jpg");
+    background-image: url("/images/background-stock-photo.jpg");
     background-size: cover;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
 }
 
 /* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -28,14 +27,12 @@ header {
     font-family: quicksand, sans-serif;
     padding-top: 100px;
     position: relative;
-    z-index: 4;
 }
 
 h1 {
     font-family: quicksand, sans-serif;
     font-size: 1.5em;
     padding-left: 30px;
-    /* background-color: #7FB069; */
 }
 
 #dishes-icon {
@@ -51,8 +48,6 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 20px 30px 20px 30px;
-    z-index: 3;
-    /* background-color: ; */
 }
 
 .nav-button {
@@ -63,28 +58,6 @@ nav {
     padding: 20px 30px 30px 30px;
     position: relative;
     height: 100%;
-    /* background-color: #7FB069; */
-
-}
-
-/* This block sets the background image behind the other content and allows 
-using the opacity property without making other elements opaque also.
-The position: absolute used in combination with position:relative of the 
-elements on top of the background image is key. */
-html:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: .7;
-    background-image: url("/images/background-stock-photo.jpg");
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-    z-index: 1;
 }
 
 .calendar-day {
@@ -94,7 +67,6 @@ html:before {
     color: #473144;
     height: 160px;
     margin-bottom: 20px;
-    z-index: 2;
 }
 
 .calendar-day-header {
@@ -114,8 +86,24 @@ html:before {
 .food-area {
     font-family: quicksand, sans-serif;
     color: #473144;
-    min-height: 120px;
-    margin: 10px;
+    height: 85px;
+    margin: 10px 10px 0px 10px;
+}
+
+.calories-area {
+    display: flex;
+    padding-bottom: 0px;
+    font-style: italic;
+}
+
+.calories-number {
+    font-family: quicksand, sans-serif;
+    color: #473144;
+    margin-left: auto;
+    margin-right: 10px;
+    padding-bottom: 0px;
+    font-size: .9em;
+    
 }
 
 .dish-name {
@@ -182,17 +170,20 @@ button:hover {
 }
 
 .modal-allergy-checkbox {
-    padding: 20px 30px 20px 30px;
+    padding: 20px 30px 10px 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.close-button,
-.close-button-employee {
+#allergies-message {
+    margin-left: 29px;
+}
+
+.close-button, .close-button-employee {
     cursor: pointer;
     border: none;
     outline: none;
@@ -215,7 +206,7 @@ button:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
 }
 
@@ -280,6 +271,14 @@ button:hover {
     Style adjustments for tablets 
     TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
 
+    h1 {
+        font-size: 2.2em;
+    }
+
+    #dishes-icon {
+        height: 30px;
+    }
+    
     nav {
         width: 50%;
     }
@@ -305,6 +304,26 @@ button:hover {
 
     .calendar-day-header {
         font-size: 1.3em;
+    }
+
+    #employee-modal, #form2 label, .modal h1, .modal-date, .employee-modal-section-title p, .food-area, .calories-number{
+        font-size: 1.5em;
+    }
+
+    .food-area {
+        height: 110px;
+    }
+
+    .calories-area {
+        font-size: .8em;
+    }
+
+    .close-button, .close-button-employee {
+        font-size: 2em;
+    }
+
+    input[type="checkbox"] {
+        zoom: 1.5;
     }
 
 
@@ -333,8 +352,12 @@ button:hover {
         font-size: 1.6em;
     }
 
-    .food-area {
+    .food-area, .calories-number {
         font-size: 1.4em;
+    }
+    
+    .food-area {
+        height: 105px;
     }
 }
 
