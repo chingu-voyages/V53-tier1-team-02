@@ -171,7 +171,8 @@ button:hover {
 
 .modal-allergy-checkbox {
     padding: 20px 30px 10px 30px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     flex-direction: column;
     justify-content: space-between;
     align-items: left;

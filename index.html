@@ -34,29 +34,32 @@
       <div class="modal-date">Date:
         <input id="calendar-entry" type="date" required />
       </div>
-      <!-- <div class="modal-days-off-checkbox">Days Off:
-        <input id="monday" class="days-off" type="checkbox" value="Monday" />
-        <label for="monday">Monday</label>
+      <form id="form-schedule">
+        <div class="modal-days-off-checkbox">Days Off:
+          <input id="monday" class="days-off" type="checkbox" value="Monday" />
+          <label for="monday">Mon</label>
 
-        <input id="tuesday" class="days-off" type="checkbox" value="Tuesday" />
-        <label for="tuesday">Tuesday</label>
+          <input id="tuesday" class="days-off" type="checkbox" value="Tuesday" />
+          <label for="tuesday">Tues</label>
 
-        <input id="wednesday" class="days-off" type="checkbox" value="Wednesday" />
-        <label for="wednesday">Wednesday</label>
-
-        <input id="thursday" class="days-off" type="checkbox" value="Thursday" />
-        <label for="thursday">Thursday</label>
-
-        <input id="friday" class="days-off" type="checkbox" value="Friday" />
-        <label for="friday">Friday</label>
-
-        <input id="saturday" class="days-off" type="checkbox" value="Saturday" />
-        <label for="saturday">Saturday</label>
-
-        <input id="sunday" class="days-off" type="checkbox" value="Sunday" />
-        <label for="sunday">Sunday</label>
-      </div> -->
-      <button class="generate-menu-btn" id="menu-btn" type="submit">Generate Menu</button>
+          <input id="wednesday" class="days-off" type="checkbox" value="Wednesday" />
+          <label for="wednesday">Wed</label>
+          
+          <input id="thursday" class="days-off" type="checkbox" value="Thursday" />
+          <label for="thursday">Thurs</label>
+          
+          <input id="friday" class="days-off" type="checkbox" value="Friday" />
+          <label for="friday">Fri</label>
+          
+          <input id="saturday" class="days-off" type="checkbox" value="Saturday" />
+          <label for="saturday">Sat</label>
+          
+          
+          <input id="sunday" class="days-off" type="checkbox" value="Sunday" />
+          <label for="sunday">Sun</label>
+        </div>
+        <button class="generate-menu-btn" id="menu-btn" type="submit">Generate Menu</button>
+      </form>
     </div>
   </div>
   <div id="overlay"></div>
@@ -71,7 +74,7 @@
       <div class="employee-modal-section-title">
         <p>Allergies</p>
       </div>
-      <form id="form2">
+      <form id="form-employee">
         <div class="modal-allergy-checkbox">
 
           <label for="tree-nuts"><input id="tree-nuts" type="checkbox" value="Treenuts" /> Tree Nuts</label>
