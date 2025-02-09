@@ -161,6 +161,7 @@ formEmployee.addEventListener("submit", (e) => {
     allergiesRegistered();
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
+    greetingChecker(); 
     // allergyCheck();
     // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
     //     if (allergy.checked === true) {
@@ -174,6 +175,14 @@ formEmployee.addEventListener("submit", (e) => {
 
 });
 
+// add date Testing 
+function greetingChecker() {
+    if (mondate.innerText === "mm/dd") {
+        console.log("hi")
+    } else {
+        console.log("no hello for anyone")
+    }
+    }
 
 
 // Function that stores allergies in an object
@@ -304,20 +313,11 @@ generateMenuBtn.addEventListener("click", () => {
     const mondaysDate = findMonday(dateInput);
     setCalendarDates(mondaysDate);
     removeAllergens();
-    // greetingChecker(); THIS IS A TEST FUNCTION
     const modal = document.querySelector(".modal.active");
     // daysOffRegistered(); // NEW CODE **
     closeModal(modal);
 });
 
-// add date Testing 
-function greetingChecker() {
-if (mondate.innerText === "mm/dd") {
-    console.log("hi")
-} else {
-    console.log("no hello for anyone")
-}
-}
 
 
 console.log(daysOffObject);
