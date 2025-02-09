@@ -5,13 +5,15 @@ const closeModalEmployeeBtn = document.querySelector(".close-button-employee");
 const overlay = document.getElementById("overlay");
 const scheduleModalDiv = document.getElementById("schedule-modal");
 const employeeModalDiv = document.getElementById("employee-modal");
-const form = document.querySelector("form")
+const formEmployee = document.getElementById("form-employee");
+const formSchedule = document.getElementById("form-schedule");
 const generateMenuBtn = document.getElementById("menu-btn");
 const allergiesButton = document.getElementById("allergies-btn");
 const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
 let allergiesArray = [];
 let allergiesObject = {Treenuts: false, Garlic: false, Milk: false, Gluten: false, Corn: false, Chocolate: false};
+let daysOffObject = {Monday: false, Tuesday: false, Wednesday: false, Thursday: false, Friday: false, Saturday: false, Sunday: false};
 let allergenicIngredients = [];
 let dishes = [];
 // let daysOffObj = {}; 
@@ -90,6 +92,7 @@ scheduleBtn.addEventListener("click", () => {
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("calendar-entry").setAttribute("min", today);
     document.getElementById("calendar-entry").setAttribute("value", today);
+    setCheckBoxesSchedule()
     openModal(scheduleModalDiv);
 })
 
@@ -111,7 +114,7 @@ overlay.addEventListener("click", () => {
 // 2.) Employee Modal Functionality
 employeeBtn.addEventListener("click", () => {
     openModal(employeeModalDiv);
-    setCheckBoxes();
+    setCheckBoxesEmployee();
 })
 
 closeModalEmployeeBtn.addEventListener("click", () => {
@@ -134,7 +137,7 @@ closeModalEmployeeBtn.addEventListener("click", () => {
 //     console.log(allergiesArray);
 // })
 
-function setCheckBoxes() {
+function setCheckBoxesEmployee() {
     console.log(allergiesObject)
     document.getElementById("tree-nuts").checked = (allergiesObject.Treenuts);
     document.getElementById("garlic").checked = (allergiesObject.Garlic);
@@ -152,7 +155,7 @@ checkboxes.forEach(checkbox => {
   });
 
 // 2.b2) Store allergies in an object (TOP PICK*)
-form.addEventListener("submit", (e) => {
+formEmployee.addEventListener("submit", (e) => {
     e.preventDefault();
     allergiesRegistered();
     const modal = document.querySelector(".modal.active");
@@ -304,6 +307,42 @@ generateMenuBtn.addEventListener("click", () => {
     // daysOffRegistered(); // NEW CODE **
     closeModal(modal);
 });
+
+console.log(daysOffObject);
+// Days off stored 
+formSchedule.addEventListener("submit", (e) => {
+    e.preventDefault();
+    daysOffRegistered();
+    const modal = document.querySelector(".modal.active");
+    closeModal(modal);
+});
+
+function daysOffRegistered() {
+    document.querySelectorAll('[type="checkbox"]').forEach(day => {
+        if (day.checked) {
+            daysOffObject[day.value] = true;
+        } else if (!day.checked) {
+            daysOffObject[day.value] = false;
+        };
+    });
+    console.log(daysOffObject);
+    console.log(daysOffObject.Monday);
+
+    // FEATURE Data in object is placed into sepearte arrays
+    // console.log(Object.entries(daysOffObject));
+};
+
+function setCheckBoxesSchedule() {
+    console.log(allergiesObject)
+    document.getElementById("monday").checked = (daysOffObject.Monday);
+    document.getElementById("tuesday").checked = (daysOffObject.Tuesday);
+    document.getElementById("wednesday").checked = (daysOffObject.Wednesday);
+    document.getElementById("thursday").checked = (daysOffObject.Thursday);
+    document.getElementById("friday").checked = (daysOffObject.Friday);
+    document.getElementById("saturday").checked = (daysOffObject.Saturday);
+    document.getElementById("sunday").checked = (daysOffObject.Sunday);
+};
+
 
 // generateMenuBtn.addEventListener("click", (e) => {
 //     e.preventDefault();
