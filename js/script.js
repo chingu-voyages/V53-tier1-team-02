@@ -16,7 +16,7 @@ let allergiesObject = {Treenuts: false, Garlic: false, Milk: false, Gluten: fals
 let daysOffObject = {Monday: false, Tuesday: false, Wednesday: false, Thursday: false, Friday: false, Saturday: false, Sunday: false};
 let allergenicIngredients = [];
 let dishes = [];
-// let daysOffObj = {}; 
+let daysOffObj = {}; 
 let dishesObj;
 let dishesScreened;
 let allergenScreenedDishes = [];
@@ -38,6 +38,7 @@ console.log(mondate.innerText);
 document.querySelector("body").onload = function () {
     loadDishes()
 };
+
 
 // This function calls the pre-saved json file so that the info is available in the form of an array for use
 // in later functions.
@@ -75,11 +76,14 @@ function loadDishes() {
 
 // 1.) Schedule Modal Functionality 
 scheduleBtn.addEventListener("click", () => {
+    initCalendar()
     //The lines of code between here and the openModal at the end
     //serve to auto-populate the calendar with an initial value of 
     //today's date and also set today's date as the minimum date
     //that can be entered, preventing someone from entering a date
-    //in the past.
+})
+
+function initCalendar() {
     let today = new Date();
     let dd = today.getDate();
     let mm = months[(today.getMonth())];
@@ -95,7 +99,7 @@ scheduleBtn.addEventListener("click", () => {
     document.getElementById("calendar-entry").setAttribute("value", today);
     setCheckBoxesSchedule()
     openModal(scheduleModalDiv);
-})
+}
 
 //Modal functionality, enables the modal to open and close by click on the "x" button as well as clicking outside of the modal itself, other buttons outside of the modal are unable to be interacted with, there is also a background dull feature
 closeModalBtn.addEventListener("click", () => {
@@ -123,20 +127,6 @@ closeModalEmployeeBtn.addEventListener("click", () => {
     closeModal(modal)
 })
 
-// 2.b) Employee allergies submission, can be stored in an array or an object
-
-// 2.b1) Store allergies in an array (Secondary Pick)
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-
-//     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
-//         if (allergy.checked === true) {
-//             allergiesArray.push(allergy.value);
-//         }
-//     })
-
-//     console.log(allergiesArray);
-// })
 
 function setCheckBoxesEmployee() {
     console.log(allergiesObject)
@@ -161,7 +151,8 @@ formEmployee.addEventListener("submit", (e) => {
     allergiesRegistered();
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
-    greetingChecker(); 
+    schedNotClicked();
+    // greetingChecker(); 
     // allergyCheck();
     // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
     //     if (allergy.checked === true) {
@@ -176,9 +167,9 @@ formEmployee.addEventListener("submit", (e) => {
 });
 
 // add date Testing 
-function greetingChecker() {
+function schedNotClicked() {
     if (mondate.innerText === "mm/dd") {
-        console.log("hi")
+        defaultCurrentDate()
     } else {
         console.log("no hello for anyone")
     }
@@ -308,6 +299,11 @@ function isValidDate(date) {
 // 3) Calls the function that starts the process of selecting dishes for the calendar
 // 4) Closes the modal
 generateMenuBtn.addEventListener("click", () => {
+    defaultCurrentDate();
+});
+
+function defaultCurrentDate() {
+    initCalendar()
     const dateAsInput = document.getElementById("calendar-entry").value;
     const dateInput = new Date(dateAsInput + 'T00:00');
     const mondaysDate = findMonday(dateInput);
@@ -316,9 +312,7 @@ generateMenuBtn.addEventListener("click", () => {
     const modal = document.querySelector(".modal.active");
     // daysOffRegistered(); // NEW CODE **
     closeModal(modal);
-});
-
-
+}
 
 console.log(daysOffObject);
 // Days off stored 
@@ -346,51 +340,14 @@ function daysOffRegistered() {
 
 function setCheckBoxesSchedule() {
     console.log(allergiesObject)
-    document.getElementById("monday").checked = (daysOffObject.Monday);
-    document.getElementById("tuesday").checked = (daysOffObject.Tuesday);
-    document.getElementById("wednesday").checked = (daysOffObject.Wednesday);
-    document.getElementById("thursday").checked = (daysOffObject.Thursday);
-    document.getElementById("friday").checked = (daysOffObject.Friday);
-    document.getElementById("saturday").checked = (daysOffObject.Saturday);
-    document.getElementById("sunday").checked = (daysOffObject.Sunday);
+    document.getElementById("monday-off").checked = (daysOffObject.Monday);
+    document.getElementById("tuesday-off").checked = (daysOffObject.Tuesday);
+    document.getElementById("wednesday-off").checked = (daysOffObject.Wednesday);
+    document.getElementById("thursday-off").checked = (daysOffObject.Thursday);
+    document.getElementById("friday-off").checked = (daysOffObject.Friday);
+    document.getElementById("saturday-off").checked = (daysOffObject.Saturday);
+    document.getElementById("sunday-off").checked = (daysOffObject.Sunday);
 };
-
-
-// generateMenuBtn.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     daysOffRegistered();
-// })
-
-// // Days off function
-// function daysOffRegistered() {
-//     daysOffDiv.forEach(day => {
-//         if (day.checked === true) {
-//             daysOffObj[day.value] = true;
-//         } else if (allergy.checked === false) {
-//             daysOffObj[day.value] = false;
-//         }
-//     })
-//     console.log(daysOffObj)
-// }
-
-// console.log(form); 
-// console.log(daysOffDiv);
-
-// // Function that stores allergies in an object
-// function allergiesRegistered() {
-//     document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
-//         if (allergy.checked === true) {
-//             allergiesObject[allergy.value] = true;
-//         } else if (allergy.checked === false) {
-//             allergiesObject[allergy.value] = false;
-//         }
-//     })
-//     console.log(allergiesObject);
-//     console.log(allergiesObject.Garlic);
-//     allergyCheck();
-//     // FEATURE Data in object is placed into sepearte arrays
-//     // console.log(Object.entries(allergiesObject));
-// }
 
 
 
