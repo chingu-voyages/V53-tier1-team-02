@@ -32,6 +32,7 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
+console.log(mondate.innerText);
 
 // This line runs once when the page loads and runs the function "loadDishes"
 document.querySelector("body").onload = function () {
@@ -160,6 +161,7 @@ formEmployee.addEventListener("submit", (e) => {
     allergiesRegistered();
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
+    greetingChecker(); 
     // allergyCheck();
     // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
     //     if (allergy.checked === true) {
@@ -173,6 +175,14 @@ formEmployee.addEventListener("submit", (e) => {
 
 });
 
+// add date Testing 
+function greetingChecker() {
+    if (mondate.innerText === "mm/dd") {
+        console.log("hi")
+    } else {
+        console.log("no hello for anyone")
+    }
+    }
 
 
 // Function that stores allergies in an object
@@ -307,6 +317,8 @@ generateMenuBtn.addEventListener("click", () => {
     // daysOffRegistered(); // NEW CODE **
     closeModal(modal);
 });
+
+
 
 console.log(daysOffObject);
 // Days off stored 
@@ -445,53 +457,6 @@ function setDishes() {
 };
 
 
-// Creating ingredient array
-
-        // to protect the original dishes array, dishesObj is created
-        // dishesObj = dishes
-        // console.log(typeof dishesObj); // Identifying dishes as object
-        // console.log(dishesObj); // Displaying object
-
-        // DESTRUCTURING PRACTICE
-        // let [ {ingredients: items}, {ingredients: items1} ] = dishesObj
-        // // items1 ...items50
-        // // loop for add all items in an array 
-        // // filtering for all unique items in that array
-        // // const {ingredients} = dishes; 
-        // console.log(items, items1);
-        
-        // .map is used to pick out all ingredients from each object within the array
-        // .flat() takes all the arrays (50) and compresses them into one COOL feature
-        // (223 total ingredients)
-        // const ingredients = dishesObj.map(dish => dish.ingredients).flat()
-        // console.log(ingredients);
-
-
-        //loop is used to create a uniqueIngredients array 
-        // (47 unique ingredients)
-        // let uniqueIngredients = []
-        // for (let i = 0; i < ingredients.length; i++) {
-        //     if (!uniqueIngredients.includes(ingredients[i])) {
-        //         uniqueIngredients.push(ingredients[i]);
-        //     }
-        // }
-
-        // console.log(uniqueIngredients);
-
-        // LOOP DESTRUCRING PRACTICE 
-        // for (let i = 0; i < dishesObj.length + 1; i++) {
-        //     const ingredientsArray = [];
-        //     // let [ {ingredients: items} ] = dishesObj; 
-        //     // ingredientsArray.push(items);
-        //     ingredientsArray.push(i);
-        //     console.log(ingredientsArray);
-        // }
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
 
 // This function randomly picks a dish from the dish array 
 /*   ** Once we have a different array that has removed allergen-containing ingredients, we can
@@ -529,60 +494,8 @@ function foodDisplay(weekday, checkedDish) {
     dayCalories.textContent = (`${checkedDish.calories} cal`)
 }
 
-// function allergyCheck(randomDish) {
-//     foodDisplay(randomDish);
-// };
-
-//  JSON MENU CODE
-
-// 1.) Use JSON and filter allergens function to create an allergy free array [] 
-
-// 2.) Generate random dish from allergy free array [pizza, pasta] 
-
-// 3.) Render random dishes to front screen
-
-//original notes
-// function allergyCheck(randomDish){
-//     if(Tree Nuts === true) {
-//         //    does randomDish.ingredients contain wheat||bread||
-//         // if the dish fails this check, call selectRandomDish()
-//         //  again to get a new dish
-//         }
-//     if(Garlic === true) {
-//         // check for Garlic ingredients
-//     }
-//     if(Milk === true) {
-//         // check for Milk ingredients
-//     }
-//     if(Gluten === true) {
-//         // check for Gluten ingredients
-//     }
-//     if(Corn === true) {
-//         // check for Corn ingredients
-//     }
-//     if(Chocolate === true) {
-//         // check for Chocolate ingredients
-//     }
-// }
 
 
 
 
 
-
-// Get required info 
-
-
-// Allergenic ingredients array i.e specific gluten based products such as bread, wheat, flour
-
-// filter for the dishes array correseponding to allergens
-
-// test push
-
-// page load event listener
-// function uniqueIngredients() {
-// const res = await fetch('assets/dishes.json'); //These first two lines call the json. 
-// dishes = await res.json();
-// console.log(dishes);
-
-// }
