@@ -17,7 +17,7 @@
 <body>
   <header>
     <h1>This Week's Menu</h1>
-    <img src="images/Vector.png" id="dishes-icon">
+    <!-- <img src="images/Vector.png" id="dishes-icon"> -->
     <nav>
       <button class="nav-button" id="schedule-button">Schedule</button>
       <button class="nav-button" id="employee-button">Employee</button>
@@ -35,28 +35,15 @@
         <input id="calendar-entry" type="date" required />
       </div>
       <form id="form-schedule">
-        <div class="modal-days-off-checkbox">Days Off:
-          <input id="monday-off" class="days-off" type="checkbox" value="Monday" />
-          <label for="monday">Mon</label>
-
-          <input id="tuesday-off" class="days-off" type="checkbox" value="Tuesday" />
-          <label for="tuesday">Tues</label>
-
-          <input id="wednesday-off" class="days-off" type="checkbox" value="Wednesday" />
-          <label for="wednesday">Wed</label>
-          
-          <input id="thursday-off" class="days-off" type="checkbox" value="Thursday" />
-          <label for="thursday">Thurs</label>
-          
-          <input id="friday-off" class="days-off" type="checkbox" value="Friday" />
-          <label for="friday">Fri</label>
-          
-          <input id="saturday-off" class="days-off" type="checkbox" value="Saturday" />
-          <label for="saturday">Sat</label>
-          
-          
-          <input id="sunday-off" class="days-off" type="checkbox" value="Sunday" />
-          <label for="sunday">Sun</label>
+        <p id="days-off-label">Days Off:</p>
+        <div class="modal-days-off-checkbox">
+          <label for="monday"><input id="monday-off" class="days-off" type="checkbox" value="Monday" />Mon</label>       
+          <label for="tuesday"><input id="tuesday-off" class="days-off" type="checkbox" value="Tuesday" />Tue</label>          
+          <label for="wednesday"><input id="wednesday-off" class="days-off" type="checkbox" value="Wednesday" />Wed</label>                    
+          <label for="thursday"><input id="thursday-off" class="days-off" type="checkbox" value="Thursday" />Thu</label>                    
+          <label for="friday"><input id="friday-off" class="days-off" type="checkbox" value="Friday" />Fri</label>                    
+          <label for="saturday"><input id="saturday-off" class="days-off" type="checkbox" value="Saturday" />Sat</label>                            
+          <label for="sunday"><input id="sunday-off" class="days-off" type="checkbox" value="Sunday" />Sun</label>
         </div>
         <button class="generate-menu-btn" id="menu-btn" type="submit">Generate Menu</button>
       </form>

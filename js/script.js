@@ -243,11 +243,12 @@ function removeAllergens() {
     setDishes();
 };
 
-// I have temporarily made the dish icon call the function to generate
-// dishes to help during development.
-dishIcon.addEventListener("click", () => {
-    removeAllergens();
-});
+// There was dish icon that was made to call the function to generate
+// dishes to help during development. In the interest of future features, it was 
+// commented out rather than deleted. This is the code for it if desired to re-use again.
+// dishIcon.addEventListener("click", () => {
+//     removeAllergens();
+// });
 
 // Opens modal
 function openModal(modal) {
