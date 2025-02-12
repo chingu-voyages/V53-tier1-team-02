@@ -169,6 +169,17 @@ button:hover {
     font-weight: bold;
 }
 
+#days-off-label {
+    margin: 0 0 0 30px;
+}
+
+.modal-days-off-checkbox {
+    padding: 0px 30px 10px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .modal-allergy-checkbox {
     padding: 20px 30px 10px 30px;
     display: grid;
