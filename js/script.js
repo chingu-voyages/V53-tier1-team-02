@@ -12,11 +12,11 @@ const allergiesButton = document.getElementById("allergies-btn");
 const dishIcon = document.getElementById("dishes-icon");
 const dateInput = document.getElementById("calendar-entry");
 let allergiesArray = [];
-let allergiesObject = {Treenuts: false, Garlic: false, Milk: false, Gluten: false, Corn: false, Chocolate: false};
-let daysOffObject = {Monday: false, Tuesday: false, Wednesday: false, Thursday: false, Friday: false, Saturday: false, Sunday: false};
+let allergiesObject = { Treenuts: false, Garlic: false, Milk: false, Gluten: false, Corn: false, Chocolate: false };
+let daysOffObject = { Monday: false, Tuesday: false, Wednesday: false, Thursday: false, Friday: false, Saturday: false, Sunday: false };
 let allergenicIngredients = [];
 let dishes = [];
-let daysOffObj = {}; 
+let daysOffObj = {};
 let dishesObj;
 let dishesScreened;
 let allergenScreenedDishes = [];
@@ -32,7 +32,8 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-console.log(mondate.innerText);
+// console.log("mondate.innerText:");
+// console.log(mondate.innerText);
 
 // This line runs once when the page loads and runs the function "loadDishes"
 document.querySelector("body").onload = function () {
@@ -50,7 +51,6 @@ function loadDishes() {
 
         // to protect the original dishes array, dishesObj is created
         dishesObj = dishes;
-        // console.log(typeof dishesObj); // Identifying dishes as object
         // console.log(dishesObj); // Displaying object
 
         // .map is used to pick out all ingredients from each object within the array
@@ -76,7 +76,9 @@ function loadDishes() {
 
 // 1.) Schedule Modal Functionality 
 scheduleBtn.addEventListener("click", () => {
-    initCalendar()
+    setCheckBoxesSchedule();
+    openModal(scheduleModalDiv);
+    initCalendar();
     //The lines of code between here and the openModal at the end
     //serve to auto-populate the calendar with an initial value of 
     //today's date and also set today's date as the minimum date
@@ -97,8 +99,8 @@ function initCalendar() {
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("calendar-entry").setAttribute("min", today);
     document.getElementById("calendar-entry").setAttribute("value", today);
-    setCheckBoxesSchedule()
-    openModal(scheduleModalDiv);
+    // openModal(scheduleModalDiv);
+    // setCheckBoxesSchedule();
 }
 
 //Modal functionality, enables the modal to open and close by click on the "x" button as well as clicking outside of the modal itself, other buttons outside of the modal are unable to be interacted with, there is also a background dull feature
@@ -129,7 +131,8 @@ closeModalEmployeeBtn.addEventListener("click", () => {
 
 
 function setCheckBoxesEmployee() {
-    console.log(allergiesObject)
+    console.log("allergiesObject:");
+    console.log(allergiesObject);
     document.getElementById("tree-nuts").checked = (allergiesObject.Treenuts);
     document.getElementById("garlic").checked = (allergiesObject.Garlic);
     document.getElementById("milk").checked = (allergiesObject.Milk);
@@ -140,10 +143,10 @@ function setCheckBoxesEmployee() {
 
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-      // Do something when the checkbox state changes
-     console.log("checkbox change");
+        // Do something when the checkbox state changes
+        console.log("checkbox change");
     });
-  });
+});
 
 // 2.b2) Store allergies in an object (TOP PICK*)
 formEmployee.addEventListener("submit", (e) => {
@@ -171,26 +174,54 @@ function schedNotClicked() {
     if (mondate.innerText === "mm/dd") {
         defaultCurrentDate()
     } else {
-        console.log("no hello for anyone")
+        console.log("mondate was not mm/dd")
     }
-    }
+}
 
 
 // Function that stores allergies in an object
 function allergiesRegistered() {
-    document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
+    document.querySelectorAll('[class="allergy-checkbox"]').forEach(allergy => {
         if (allergy.checked) {
             allergiesObject[allergy.value] = true;
         } else if (!allergy.checked) {
             allergiesObject[allergy.value] = false;
         };
     });
+    console.log("allergiesObject:");
     console.log(allergiesObject);
     // console.log(allergiesObject.Garlic);
     allergyCheck();
     // FEATURE Data in object is placed into sepearte arrays
     // console.log(Object.entries(allergiesObject));
 };
+
+function daysOffRegistered() {
+    document.querySelectorAll('[class="days-off"]').forEach(day => {
+        console.log(day.value);
+        console.log(day.checked);
+        if (day.checked) {
+            daysOffObject[day.value] = true;
+        } else if (!day.checked) {
+            daysOffObject[day.value] = false;
+        };
+    });
+    console.log("daysoffObject:");
+    console.log(daysOffObject);
+    daysOffObject.forEach(displayDaysOff);
+    // console.log(allergiesObject.Garlic);
+    // allergyCheck();
+    // FEATURE Data in object is placed into sepearte arrays
+    // console.log(Object.entries(allergiesObject));
+};
+
+function displayDaysOff(day) {
+    let dayLowerCase = day.toLowerCase();
+    console.log(dayLowerCase);
+    if (day) {
+
+    }
+}
 
 // edit UPDATED FLAGGED FOODS 
 function allergyCheck() {
@@ -204,16 +235,16 @@ function allergyCheck() {
     if (allergiesObject.Milk === true) {
         allergenicIngredients.push("Milk", "Cream", "Cheese", "Butter", "Yogurt")
     }
-    if(allergiesObject.Gluten === true) {
+    if (allergiesObject.Gluten === true) {
         allergenicIngredients.push("Bread", "Flour", "Pasta")
     }
-    if(allergiesObject.Corn === true) {
+    if (allergiesObject.Corn === true) {
         allergenicIngredients.push("Corn")
     }
-    if(allergiesObject.Chocolate === true) {
+    if (allergiesObject.Chocolate === true) {
         allergenicIngredients.push("Chocolate")
     }
-    console.log(allergenicIngredients);
+    // console.log(allergenicIngredients);
     removeAllergens();
 };
 
@@ -239,7 +270,7 @@ function removeAllergens() {
         }
         // console.log(containsAny(dishes[i], allergiesObject));
     }
-    console.log(allergenScreenedDishes);
+    // console.log(allergenScreenedDishes);
     setDishes();
 };
 
@@ -303,8 +334,9 @@ generateMenuBtn.addEventListener("click", () => {
     defaultCurrentDate();
 });
 
+// 
 function defaultCurrentDate() {
-    initCalendar()
+    initCalendar();
     const dateAsInput = document.getElementById("calendar-entry").value;
     const dateInput = new Date(dateAsInput + 'T00:00');
     const mondaysDate = findMonday(dateInput);
@@ -315,7 +347,7 @@ function defaultCurrentDate() {
     closeModal(modal);
 }
 
-console.log(daysOffObject);
+// console.log(daysOffObject);
 // Days off stored 
 formSchedule.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -324,23 +356,26 @@ formSchedule.addEventListener("submit", (e) => {
     closeModal(modal);
 });
 
-function daysOffRegistered() {
-    document.querySelectorAll('[type="checkbox"]').forEach(day => {
-        if (day.checked) {
-            daysOffObject[day.value] = true;
-        } else if (!day.checked) {
-            daysOffObject[day.value] = false;
-        };
-    });
-    console.log(daysOffObject);
-    console.log(daysOffObject.Monday);
+// function daysRegistered() {
+//     document.querySelectorAll('[class="days-off"]').forEach(day => {
+//         console.log("entered daysOffRegistered");
+//         if (day.checked) {
+//             daysOffObject[day.value] = true;
+//         } else if (!day.checked) {
+//             daysOffObject[day.value] = false;
+//         };
+//     });
+//     console.log("daysOffObject:");
+//     console.log(daysOffObject);
+//     // console.log(daysOffObject.Monday);
 
-    // FEATURE Data in object is placed into sepearte arrays
-    // console.log(Object.entries(daysOffObject));
-};
+//     // FEATURE Data in object is placed into sepearte arrays
+//     // console.log(Object.entries(daysOffObject));
+// };
 
 function setCheckBoxesSchedule() {
-    console.log(allergiesObject)
+    console.log("daysOffObject");
+    console.log(daysOffObject);
     document.getElementById("monday-off").checked = (daysOffObject.Monday);
     document.getElementById("tuesday-off").checked = (daysOffObject.Tuesday);
     document.getElementById("wednesday-off").checked = (daysOffObject.Wednesday);
@@ -410,8 +445,8 @@ function setDishes() {
     }
     let weekdayDishArrayNames = weekdayDishArray.map(weekdayDishArray => weekdayDishArray.name); //This line creates an array of just the dish names
     // console.log(`The week's dishes: ${weekdayDishArrayNames}`); //This may be removed for final production. The array of dish names is useful in development but may not serve a purpose when all is complete.
-    console.log(`The week's dishes: `);
-    console.table(weekdayDishArray); //This may be removed for final production. The array of dish names is useful in development but may not serve a purpose when all is complete.
+    // console.log(`The week's dishes: `);
+    // console.table(weekdayDishArray); //This may be removed for final production. The array of dish names is useful in development but may not serve a purpose when all is complete.
 };
 
 
