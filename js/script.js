@@ -32,9 +32,6 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
-// console.log("mondate.innerText:");
-// console.log(mondate.innerText);
-
 // This line runs once when the page loads and runs the function "loadDishes"
 document.querySelector("body").onload = function () {
     loadDishes();
@@ -47,11 +44,9 @@ function loadDishes() {
     const getDishes = async function () {
         const res = await fetch('assets/dishes.json'); //These two lines call the json. 
         dishes = await res.json();
-        // console.log(dishes);
 
         // to protect the original dishes array, dishesObj is created
         dishesObj = dishes;
-        // console.log(dishesObj); // Displaying object
 
         // .map is used to pick out all ingredients from each object within the array
         // .flat() takes all the arrays (50) and compresses them into one, COOL feature
@@ -68,7 +63,6 @@ function loadDishes() {
                 uniqueIngredients.push(ingredients[i]);
             }
         }
-        // console.log(uniqueIngredients);
     }
     getDishes();
 }
@@ -99,21 +93,16 @@ function initCalendar() {
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("calendar-entry").setAttribute("min", today);
     document.getElementById("calendar-entry").setAttribute("value", today);
-    setCheckBoxesSchedule();
-    openModal(scheduleModalDiv);
 };
 
 //Modal functionality, enables the modal to open and close by click on the "x" button as well as clicking outside of the modal itself, other buttons outside of the modal are unable to be interacted with, there is also a background dull feature
 closeModalBtn.addEventListener("click", () => {
-    // const modal = document.querySelector(".close-button");
-    // const modal = document.querySelectorAll(".modal.active");
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
 });
 
 //Adds background change feature
 overlay.addEventListener("click", () => {
-    // const modal = document.querySelectorAll(".modal.active");
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
 });
@@ -129,8 +118,8 @@ closeModalEmployeeBtn.addEventListener("click", () => {
     closeModal(modal);
 });
 
-
 function setCheckBoxesEmployee() {
+    console.log("allergiesObject:");
     console.log(allergiesObject);
     document.getElementById("tree-nuts").checked = (allergiesObject.Treenuts);
     document.getElementById("garlic").checked = (allergiesObject.Garlic);
@@ -160,8 +149,8 @@ formEmployee.addEventListener("submit", (e) => {
 function schedNotClicked() {
     if (mondate.innerText === "mm/dd") {
         defaultCurrentDate();
-    } 
-    };
+    }
+};
 
 
 // Function that stores allergies in an object
@@ -174,38 +163,42 @@ function allergiesRegistered() {
         };
     });
     console.log(allergiesObject);
-    // console.log(allergiesObject.Garlic);
     allergyCheck();
     // FEATURE Data in object is placed into sepearte arrays
-    // console.log(Object.entries(allergiesObject));
 };
 
+// Creates an array of days with true if they are marked as a day off
 function daysOffRegistered() {
     document.querySelectorAll('[class="days-off"]').forEach(day => {
-        console.log(day.value);
-        console.log(day.checked);
         if (day.checked) {
             daysOffObject[day.value] = true;
         } else if (!day.checked) {
             daysOffObject[day.value] = false;
         };
     });
-    console.log("daysoffObject:");
-    console.log(daysOffObject);
-    daysOffObject.forEach(displayDaysOff);
-    // console.log(allergiesObject.Garlic);
-    // allergyCheck();
-    // FEATURE Data in object is placed into sepearte arrays
-    // console.log(Object.entries(allergiesObject));
+    displayDaysOff();
 };
 
-function displayDaysOff(day) {
-    let dayLowerCase = day.toLowerCase();
-    console.log(dayLowerCase);
-    if (day) {
+// Show a day off message instead of a dish if the day is marked as a day off
+function displayDaysOff() {
+    for (let day in daysOffObject) {
+        let dayLowerCase = day.toLowerCase();
+        let foodArea = document.querySelector(`[id=${dayLowerCase}] .food-area`);
+        let caloriesArea = document.querySelector(`[id=${dayLowerCase}] .calories-area`);
+        let specialMessage = document.querySelector(`[id=${dayLowerCase}] .special-message`);
 
-    }
-}
+        if (daysOffObject[day]) {
+            foodArea.classList.add("hidden");
+            caloriesArea.classList.add("hidden");
+            specialMessage.textContent = "Day Off!";
+            specialMessage.classList.remove("hidden");
+        } else {
+            foodArea.classList.remove("hidden");
+            caloriesArea.classList.remove("hidden");
+            specialMessage.classList.add("hidden");
+        };
+    };    
+};
 
 // edit UPDATED FLAGGED FOODS 
 function allergyCheck() {
@@ -228,7 +221,6 @@ function allergyCheck() {
     if (allergiesObject.Chocolate === true) {
         allergenicIngredients.push("Chocolate")
     }
-    // console.log(allergenicIngredients);
     removeAllergens();
 };
 
@@ -240,17 +232,11 @@ function removeAllergens() {
     }
     for (let i = 0; i < dishes.length; i++) {
         let testIngredients = dishes[i].ingredients;
-        // console.log(testIngredients)
-        // console.log(allergenicIngredients)
-        // console.log(dishes[i].name);
-        // console.log(containsAny(testIngredients, allergenicIngredients));
         if (containsAny(testIngredients, allergenicIngredients)) {
         } else {
             allergenScreenedDishes.push(dishes[i]);
         }
-        // console.log(containsAny(dishes[i], allergiesObject));
     }
-    // console.log(allergenScreenedDishes);
     setDishes();
 };
 
@@ -295,8 +281,6 @@ dateInput.addEventListener("input", () => {
     }
 });
 
-
-
 // This is the function that checks if the entered date is valid
 // by making sure it's equal to or greater than today.
 function isValidDate(date) {
@@ -327,7 +311,6 @@ function defaultCurrentDate() {
     closeModal(modal);
 }
 
-// console.log(daysOffObject);
 // Days off stored 
 formSchedule.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -336,26 +319,7 @@ formSchedule.addEventListener("submit", (e) => {
     closeModal(modal);
 });
 
-// function daysRegistered() {
-//     document.querySelectorAll('[class="days-off"]').forEach(day => {
-//         console.log("entered daysOffRegistered");
-//         if (day.checked) {
-//             daysOffObject[day.value] = true;
-//         } else if (!day.checked) {
-//             daysOffObject[day.value] = false;
-//         };
-//     });
-//     console.log("daysOffObject:");
-//     console.log(daysOffObject);
-//     // console.log(daysOffObject.Monday);
-
-//     // FEATURE Data in object is placed into sepearte arrays
-//     // console.log(Object.entries(daysOffObject));
-// };
-
 function setCheckBoxesSchedule() {
-    console.log("daysOffObject");
-    console.log(daysOffObject);
     document.getElementById("monday-off").checked = (daysOffObject.Monday);
     document.getElementById("tuesday-off").checked = (daysOffObject.Tuesday);
     document.getElementById("wednesday-off").checked = (daysOffObject.Wednesday);
@@ -364,8 +328,6 @@ function setCheckBoxesSchedule() {
     document.getElementById("saturday-off").checked = (daysOffObject.Saturday);
     document.getElementById("sunday-off").checked = (daysOffObject.Sunday);
 };
-
-
 
 // This function will take the date that is passed to it and find the 
 // date of the Monday of that dates's week. This is assuming the week
@@ -424,9 +386,7 @@ function setDishes() {
         getDailyDish(weekdayArray[i], weekdayDishArray);
     }
     let weekdayDishArrayNames = weekdayDishArray.map(weekdayDishArray => weekdayDishArray.name); //This line creates an array of just the dish names
-    // console.log(`The week's dishes: ${weekdayDishArrayNames}`); //This may be removed for final production. The array of dish names is useful in development but may not serve a purpose when all is complete.
-    // console.log(`The week's dishes: `);
-    // console.table(weekdayDishArray); //This may be removed for final production. The array of dish names is useful in development but may not serve a purpose when all is complete.
+    console.table(weekdayDishArray); //This can be removed if desired for final production. The array of dish names is useful in development but may not serve a purpose when all is complete.
 };
 
 
@@ -439,7 +399,6 @@ function getDailyDish(weekday, weekdayDishArray) {
     function getRandomDish(weekday) {
         const randomIndex = Math.floor(Math.random() * allergenScreenedDishes.length); //these next lines select a random dish from the dishes array
         const randomDish = (allergenScreenedDishes[randomIndex]);
-        // console.log(weekday + " dish: " + (randomDish.name)); //-----This will be removed for final production
         repetitionCheck(randomDish);
     };
     function repetitionCheck(randomDish) {

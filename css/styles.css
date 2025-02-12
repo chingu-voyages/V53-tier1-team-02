@@ -90,6 +90,15 @@ nav {
     margin: 10px 10px 0px 10px;
 }
 
+.special-message {
+    font-family: quicksand, sans-serif;
+    color: #473144;
+    height: auto;
+    margin: 10px 10px 0px 10px;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
 .calories-area {
     display: flex;
     padding-bottom: 0px;
@@ -180,6 +189,11 @@ button:hover {
     justify-content: space-between;
 }
 
+#generate-menu-btn-container {
+    display: flex;
+    padding: 0px 30px;
+}
+
 .modal-allergy-checkbox {
     padding: 20px 30px 10px 30px;
     display: grid;
@@ -253,8 +267,8 @@ button:hover {
 
 #menu-btn {
     background-color: #BF4342;
-    width: auto;
-    margin: 10px 30px 30px 30px;
+    width: 100%;
+    margin: 10px 0px 30px 0px;
     padding: 10px 0px;
     height: 1.5em;
     /* #calendar-entry:invalid::{color red}
@@ -266,8 +280,16 @@ button:hover {
     border-bottom: solid #473144 1px;
 }
 
+#allergies-btn-container {
+    display:flex;
+    padding: 0 30px;
+}
+
 #allergies-btn {
-    margin: 10px 30px 30px 30px;
+    width: 100%;
+    margin: 10px 0px 30px 0px;
+    padding: 10px 0px;
+    height: 1.5em;
 }
 
 
@@ -297,7 +319,7 @@ button:hover {
 
     button {
         background-color: #BF4342;
-        font-size: 1.3em;
+        font-size: 1.5rem;
 
     }
 
@@ -353,7 +375,7 @@ button:hover {
     DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
 
     button {
-        font-size: 1.6em;
+        font-size: 1.6rem;
     }
 
     .calendar-day {

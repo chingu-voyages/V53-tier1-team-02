@@ -37,15 +37,18 @@
       <form id="form-schedule">
         <p id="days-off-label">Days Off:</p>
         <div class="modal-days-off-checkbox">
-          <label for="monday"><input id="monday-off" class="days-off" type="checkbox" value="Monday" />Mon</label>       
-          <label for="tuesday"><input id="tuesday-off" class="days-off" type="checkbox" value="Tuesday" />Tue</label>          
-          <label for="wednesday"><input id="wednesday-off" class="days-off" type="checkbox" value="Wednesday" />Wed</label>                    
-          <label for="thursday"><input id="thursday-off" class="days-off" type="checkbox" value="Thursday" />Thu</label>                    
-          <label for="friday"><input id="friday-off" class="days-off" type="checkbox" value="Friday" />Fri</label>                    
-          <label for="saturday"><input id="saturday-off" class="days-off" type="checkbox" value="Saturday" />Sat</label>                            
+          <label for="monday"><input id="monday-off" class="days-off" type="checkbox" value="Monday" />Mon</label>
+          <label for="tuesday"><input id="tuesday-off" class="days-off" type="checkbox" value="Tuesday" />Tue</label>
+          <label for="wednesday"><input id="wednesday-off" class="days-off" type="checkbox"
+              value="Wednesday" />Wed</label>
+          <label for="thursday"><input id="thursday-off" class="days-off" type="checkbox" value="Thursday" />Thu</label>
+          <label for="friday"><input id="friday-off" class="days-off" type="checkbox" value="Friday" />Fri</label>
+          <label for="saturday"><input id="saturday-off" class="days-off" type="checkbox" value="Saturday" />Sat</label>
           <label for="sunday"><input id="sunday-off" class="days-off" type="checkbox" value="Sunday" />Sun</label>
         </div>
-        <button class="generate-menu-btn" id="menu-btn" type="submit">Generate Menu</button>
+        <div id="generate-menu-btn-container">
+          <button class="generate-menu-btn" id="menu-btn" type="submit">Generate Menu</button>
+        </div>
       </form>
     </div>
   </div>
@@ -63,15 +66,21 @@
       </div>
       <form id="form-employee">
         <div class="modal-allergy-checkbox">
-          <label for="tree-nuts"><input id="tree-nuts" type="checkbox" value="Treenuts" class="allergy-checkbox"/> Tree Nuts</label>
-          <label for="garlic"><input id="garlic" type="checkbox" value="Garlic" class="allergy-checkbox"/> Garlic</label>
-          <label for="milk"><input id="milk" type="checkbox" value="Milk" class="allergy-checkbox"/> Milk</label>
-          <label for="gluten"><input id="gluten" type="checkbox" value="Gluten" class="allergy-checkbox"/> Gluten</label>
-          <label for="corn"><input id="corn" type="checkbox" value="Corn" class="allergy-checkbox"/> Corn</label>
-          <label for="chocolate"><input id="chocolate" type="checkbox" value="Chocolate" class="allergy-checkbox"/> Chocolate</label>
+          <label for="tree-nuts"><input id="tree-nuts" type="checkbox" value="Treenuts" class="allergy-checkbox" /> Tree
+            Nuts</label>
+          <label for="garlic"><input id="garlic" type="checkbox" value="Garlic" class="allergy-checkbox" />
+            Garlic</label>
+          <label for="milk"><input id="milk" type="checkbox" value="Milk" class="allergy-checkbox" /> Milk</label>
+          <label for="gluten"><input id="gluten" type="checkbox" value="Gluten" class="allergy-checkbox" />
+            Gluten</label>
+          <label for="corn"><input id="corn" type="checkbox" value="Corn" class="allergy-checkbox" /> Corn</label>
+          <label for="chocolate"><input id="chocolate" type="checkbox" value="Chocolate" class="allergy-checkbox" />
+            Chocolate</label>
         </div>
         <p id="allergies-message">* Don't forget to submit allergies!</p>
-        <button class="submit-allegies-btn" id="allergies-btn" type="submit">Submit</button>
+        <div id="allergies-btn-container">
+          <button class="submit-allegies-btn" id="allergies-btn" type="submit">Submit</button>
+        </div>
       </form>
     </div>
   </div>
@@ -85,6 +94,7 @@
         <p class="week-day">Monday</p>
         <p id="mondate">mm/dd</p>
       </div>
+      <p class="special-message" class="hidden"></p>
       <div class="food-area">
         <p class="dish-name">Please select dates</p>
         <p class="ingredients"></p>
@@ -100,6 +110,7 @@
         <p class="week-day">Tuesday</p>
         <p id="tuedate">mm/dd</p>
       </div>
+      <p class="special-message" class="hidden"></p>
       <div class="food-area">
         <p class="dish-name"></p>
         <p class="ingredients"></p>
@@ -115,6 +126,7 @@
         <p class="week-day">Wednesday</p>
         <p id="weddate">mm/dd</p>
       </div>
+      <p class="special-message" class="hidden"></p>
       <div class="food-area">
         <p class="dish-name"></p>
         <p class="ingredients"></p>
@@ -131,6 +143,7 @@
         <p class="week-day">Thursday</p>
         <p id="thurdate">mm/dd</p>
       </div>
+      <p class="special-message" class = "hidden"></p>
       <div class="food-area">
         <p class="dish-name"></p>
         <p class="ingredients"></p>
@@ -147,6 +160,7 @@
         <p class="week-day">Friday</p>
         <p id="fridate">mm/dd</p>
       </div>
+      <p class="special-message" class = "hidden"></p>
       <div class="food-area">
         <p class="dish-name"></p>
         <p class="ingredients"></p>
@@ -163,6 +177,7 @@
         <p class="week-day">Saturday</p>
         <p id="satdate">mm/dd</p>
       </div>
+      <p class="special-message" class = "hidden"></p>
       <div class="food-area">
         <p class="dish-name"></p>
         <p class="ingredients"></p>
@@ -179,6 +194,7 @@
         <p class="week-day">Sunday</p>
         <p id="sundate">mm/dd</p>
       </div>
+      <p class="special-message" class = "hidden"></p>
       <div class="food-area">
         <p class="dish-name"></p>
         <p class="ingredients"></p>
