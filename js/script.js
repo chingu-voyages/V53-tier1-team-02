@@ -171,7 +171,7 @@ formEmployee.addEventListener("submit", (e) => {
 function schedNotClicked() {
     if (mondate.innerText === "mm/dd") {
         defaultCurrentDate();
-    } 
+    }
 };
 
 
