@@ -30,14 +30,14 @@ const sundate = document.getElementById("sundate");
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+const weekdayArray = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
 // console.log("mondate.innerText:");
 // console.log(mondate.innerText);
 
 // This line runs once when the page loads and runs the function "loadDishes"
 document.querySelector("body").onload = function () {
-    loadDishes()
+    loadDishes();
 };
 
 
@@ -62,7 +62,7 @@ function loadDishes() {
 
         //loop is used to create a uniqueIngredients array 
         // (47 unique ingredients)
-        let uniqueIngredients = []
+        let uniqueIngredients = [];
         for (let i = 0; i < ingredients.length; i++) {
             if (!uniqueIngredients.includes(ingredients[i])) {
                 uniqueIngredients.push(ingredients[i]);
@@ -99,37 +99,38 @@ function initCalendar() {
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("calendar-entry").setAttribute("min", today);
     document.getElementById("calendar-entry").setAttribute("value", today);
-}
+    setCheckBoxesSchedule();
+    openModal(scheduleModalDiv);
+};
 
 //Modal functionality, enables the modal to open and close by click on the "x" button as well as clicking outside of the modal itself, other buttons outside of the modal are unable to be interacted with, there is also a background dull feature
 closeModalBtn.addEventListener("click", () => {
     // const modal = document.querySelector(".close-button");
     // const modal = document.querySelectorAll(".modal.active");
     const modal = document.querySelector(".modal.active");
-    closeModal(modal)
-})
+    closeModal(modal);
+});
 
 //Adds background change feature
 overlay.addEventListener("click", () => {
     // const modal = document.querySelectorAll(".modal.active");
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
-})
+});
 
 // 2.) Employee Modal Functionality
 employeeBtn.addEventListener("click", () => {
     openModal(employeeModalDiv);
     setCheckBoxesEmployee();
-})
+});
 
 closeModalEmployeeBtn.addEventListener("click", () => {
     const modal = document.querySelector(".modal.active");
-    closeModal(modal)
-})
+    closeModal(modal);
+});
 
 
 function setCheckBoxesEmployee() {
-    console.log("allergiesObject:");
     console.log(allergiesObject);
     document.getElementById("tree-nuts").checked = (allergiesObject.Treenuts);
     document.getElementById("garlic").checked = (allergiesObject.Garlic);
@@ -153,18 +154,6 @@ formEmployee.addEventListener("submit", (e) => {
     const modal = document.querySelector(".modal.active");
     closeModal(modal);
     schedNotClicked();
-    // greetingChecker(); 
-    // allergyCheck();
-    // document.querySelectorAll('[type="checkbox"]').forEach(allergy => {
-    //     if (allergy.checked === true) {
-    //         allergiesObject[allergy.value] = true;
-    //     } else if (allergy.checked === false) {
-    //         allergiesObject[allergy.value] = false;
-    //     }
-    // })
-
-    // console.log(allergiesObject);
-
 });
 
 // add date Testing 
@@ -172,7 +161,7 @@ function schedNotClicked() {
     if (mondate.innerText === "mm/dd") {
         defaultCurrentDate();
     } 
-};
+    };
 
 
 // Function that stores allergies in an object
@@ -243,10 +232,6 @@ function allergyCheck() {
     removeAllergens();
 };
 
-// function allergyScreen() {
-//     dishesScreened = array.filter(ing => !allergenicIngredients.includes(ing));
-//     console.log(dishesScreened);
-// };
 
 function removeAllergens() {
     allergenScreenedDishes = [];
@@ -479,7 +464,7 @@ function foodDisplay(weekday, checkedDish) {
     let dayCalories = document.querySelector(`#${weekday} .calories-number`);
     dayDish.textContent = (checkedDish.name);
     dayIngredients.textContent = ("Ingredients: " + checkedDishIngredients);
-    dayCalories.textContent = (`${checkedDish.calories} cal`)
+    dayCalories.textContent = (`${checkedDish.calories} cal`);
 }
 
 
