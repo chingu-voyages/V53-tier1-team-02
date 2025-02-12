@@ -99,8 +99,6 @@ function initCalendar() {
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("calendar-entry").setAttribute("min", today);
     document.getElementById("calendar-entry").setAttribute("value", today);
-    setCheckBoxesSchedule();
-    openModal(scheduleModalDiv);
 };
 
 //Modal functionality, enables the modal to open and close by click on the "x" button as well as clicking outside of the modal itself, other buttons outside of the modal are unable to be interacted with, there is also a background dull feature
@@ -131,6 +129,7 @@ closeModalEmployeeBtn.addEventListener("click", () => {
 
 
 function setCheckBoxesEmployee() {
+    console.log("allergiesObject:");
     console.log(allergiesObject);
     document.getElementById("tree-nuts").checked = (allergiesObject.Treenuts);
     document.getElementById("garlic").checked = (allergiesObject.Garlic);
@@ -182,29 +181,41 @@ function allergiesRegistered() {
 
 function daysOffRegistered() {
     document.querySelectorAll('[class="days-off"]').forEach(day => {
-        console.log(day.value);
-        console.log(day.checked);
+        // console.log(day.value);
+        // console.log(day.checked);
         if (day.checked) {
             daysOffObject[day.value] = true;
         } else if (!day.checked) {
             daysOffObject[day.value] = false;
         };
     });
-    console.log("daysoffObject:");
+    console.log("daysOffObject:");
     console.log(daysOffObject);
-    daysOffObject.forEach(displayDaysOff);
+    displayDaysOff();
     // console.log(allergiesObject.Garlic);
     // allergyCheck();
     // FEATURE Data in object is placed into sepearte arrays
     // console.log(Object.entries(allergiesObject));
 };
 
-function displayDaysOff(day) {
-    let dayLowerCase = day.toLowerCase();
-    console.log(dayLowerCase);
-    if (day) {
-
-    }
+function displayDaysOff() {
+    for (let day in daysOffObject) {
+        let dayLowerCase = day.toLowerCase();
+        // console.log(`${day}: ${daysOffObject[day]}`);
+        if (daysOffObject[day]) {
+            console.log(day);
+            // let testSearch = document.querySelector(`[id=${dayLowerCase}] [class=".food-area"] [class=".dish-name"]`);
+            let foodArea = document.querySelector(`[id=${dayLowerCase}] .food-area`);
+            console.log(foodArea);
+            testSearch.classList.add("hidden");
+            
+        };
+    };
+    // let dayLowerCase = day.toLowerCase();
+    // console.log(dayLowerCase);
+    // if (day) {
+    // 
+    // }
 }
 
 // edit UPDATED FLAGGED FOODS 
@@ -354,8 +365,8 @@ formSchedule.addEventListener("submit", (e) => {
 // };
 
 function setCheckBoxesSchedule() {
-    console.log("daysOffObject");
-    console.log(daysOffObject);
+    // console.log("daysOffObject");
+    // console.log(daysOffObject);
     document.getElementById("monday-off").checked = (daysOffObject.Monday);
     document.getElementById("tuesday-off").checked = (daysOffObject.Tuesday);
     document.getElementById("wednesday-off").checked = (daysOffObject.Wednesday);
