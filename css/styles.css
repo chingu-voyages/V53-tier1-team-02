@@ -90,6 +90,15 @@ nav {
     margin: 10px 10px 0px 10px;
 }
 
+.special-message {
+    font-family: quicksand, sans-serif;
+    color: #473144;
+    height: auto;
+    margin: 10px 10px 0px 10px;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
 .calories-area {
     display: flex;
     padding-bottom: 0px;
