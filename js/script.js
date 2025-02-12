@@ -99,8 +99,6 @@ function initCalendar() {
     today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("calendar-entry").setAttribute("min", today);
     document.getElementById("calendar-entry").setAttribute("value", today);
-    // openModal(scheduleModalDiv);
-    // setCheckBoxesSchedule();
 }
 
 //Modal functionality, enables the modal to open and close by click on the "x" button as well as clicking outside of the modal itself, other buttons outside of the modal are unable to be interacted with, there is also a background dull feature
@@ -172,11 +170,9 @@ formEmployee.addEventListener("submit", (e) => {
 // add date Testing 
 function schedNotClicked() {
     if (mondate.innerText === "mm/dd") {
-        defaultCurrentDate()
-    } else {
-        console.log("mondate was not mm/dd")
-    }
-}
+        defaultCurrentDate();
+    } 
+};
 
 
 // Function that stores allergies in an object
@@ -188,7 +184,6 @@ function allergiesRegistered() {
             allergiesObject[allergy.value] = false;
         };
     });
-    console.log("allergiesObject:");
     console.log(allergiesObject);
     // console.log(allergiesObject.Garlic);
     allergyCheck();
