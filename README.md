@@ -1,9 +1,9 @@
 # Plate Date
 
-# Overview 🛰️
+# Overview 🌎
 Plate Date is a dynamic menu scheduling application that enables managers to create and share weekly menus with employees. The goal of Plate Date is to allow users to seamlessly schedule unique menu items while accounting for different allergies. All dishes are displayed live on the main page with the dates, ingredients, and calories listed.
 
-# Features 🎮
+# Features 🎯
 
   - Front Page 🔭
     
