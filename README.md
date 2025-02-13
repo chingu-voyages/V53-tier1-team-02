@@ -6,10 +6,13 @@ Plate Date is a dynamic menu scheduling application that enables managers to cre
 # Features
 
   - Schedule button
+    
     - When clicked the schedule button will open a user window with additonal features
-      -  The date sub-feature allows the user to schedule a week for the weekly menu, if no date is entered a preset week will be           selected (the current week in users time zone)
-      -  The days off sub-feature will allow the user to select days off on the weekly menu
-      -  The generate menu button will create a weekly menu with dates and days off (specified in the schedule window), as well as          allergies (specified from the allergies window). All changes will be rendered live on the front screen.  
+      -  The date sub-feature allows the user to schedule a week for the weekly menu, if no date is entered a preset week will be           selected (the current week in users time zone) 🗓️
+        
+      -  The days off sub-feature will allow the user to select days off on the weekly menu 📆
+        
+      -  The generate menu button will create a weekly menu with dates and days off (specified in the schedule window), as well as          allergies (specified from the allergies window). All changes will be rendered live on the front screen. ✅ 
   
 
 ## Team Documents
