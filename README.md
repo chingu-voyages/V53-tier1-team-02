@@ -25,8 +25,11 @@ Plate Date is a dynamic menu scheduling application that enables managers to cre
     - When clicked the allergies button will open a user window with additional features
       -  The allergies checkbox sub-feature allows users to select allergies. 🚫 
       
-      -  The submit button will register the allergies selected and subsequently alter the menu, omitting dishes that conflict              with any allergies that are submitted. The submit button also auto generates a menu and week date (to the current                  week) if they are not already scheduled in the schedule window. ✅
+      -  The submit button will register the allergies selected and subsequently alter the menu, omitting dishes that conflict with any                   allergies that are submitted. The submit button also auto generates a menu and week date (to the current week) if they are not already           scheduled in the schedule window. ✅
       
+# Running The Project
+
+
 
 ## Our Team
 
