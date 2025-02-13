@@ -31,7 +31,7 @@ Plate Date is a dynamic menu scheduling application that enables managers to cre
 
 Will Add a link here --
 
-# Dependencies 
+# Dependencies 🦾
   - HTML
   - CSS
   - Javascript
