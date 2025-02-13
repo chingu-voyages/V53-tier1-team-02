@@ -29,9 +29,12 @@ Plate Date is a dynamic menu scheduling application that enables managers to cre
       
 # Running The Project 🚲
 
+Will Add a link here --
 
 # Dependencies 
-
+  - HTML
+  - CSS
+  - Javascript
 
 ## Our Team
 
