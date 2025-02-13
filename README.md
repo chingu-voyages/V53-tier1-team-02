@@ -5,7 +5,7 @@ Plate Date is a dynamic menu scheduling application that enables managers to cre
 
 # Features
 
-  ## Dynamic Schedule
+  - Dynamic Schedule
     - users are able
 
 
