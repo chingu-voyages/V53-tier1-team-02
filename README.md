@@ -39,8 +39,6 @@ coding!
 
 - Bryan Hoyem (Developer): [GitHub](https://github.com/bhoyem) / [LinkedIn](https://linkedin.com/in/bryanhoyem)
 
-- Philip Nations (Developer): [GitHub](https://github.com/pnations) / [LinkedIn](https://www.linkedin.com/in/pnations/)
-
 - Jessica Hackett (UI/UX Designer): [LinkedIn](https://www.linkedin.com/in/jessica-hackett-6725a4325/?trk=opento_sprofile_topcard****)
 
 - Chanae Pickett (Scrum Master): [Github](https://github.com/chanaelynease) / [LinkedIn](https://linkedin.com/in/chanaepickett)

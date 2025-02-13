@@ -2,11 +2,13 @@ html {
     color: #222;
     font-size: 1rem;
     line-height: 1.4;
-}
+    }
 
 body {
-    background-color: #B7DCFF66;
     min-width: 250px;
+    background-image: url("/images/background-stock-photo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -20,80 +22,275 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
-    color: #044F95;
-    background-color: white;
-    font-family: inter, sans-serif;
+    color: #473144;
+    background-color: #7FB069;
+    font-family: quicksand, sans-serif;
     padding-top: 100px;
+    position: relative;
 }
 
 h1 {
+    font-family: quicksand, sans-serif;
+    font-size: 1.5em;
     padding-left: 30px;
 }
 
-#dish-details-icon-1 {
-    padding-right: 30px;
-}
-
 #dishes-icon {
-    width: 35px;
-    height: 24px;
-    color: #17A1FA;
+    width: auto;
+    height: 20px;
+    color: #8C1C13;
+    margin-right: 30px;
+    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
 }
 
 nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 40px 30px 30px 30px;
-    background-color: #B7DCFF66;
+    padding: 20px 30px 20px 30px;
+}
+
+.nav-button {
+    filter: drop-shadow(0px 3px 2px rgb(68, 68, 68));
 }
 
 #week-display {
-    padding: 0px 30px 30px 30px;
+    padding: 20px 30px 30px 30px;
+    position: relative;
+    height: 100%;
 }
 
 .calendar-day {
+    position: relative;
     border-radius: 5px;
-    background-color: #AFD9FF;
-    color: #044F95 height: 160px;
-    margin-bottom: 10px;
+    background-color: #E7D7C1;
+    color: #473144;
+    height: 160px;
+    margin-bottom: 20px;
 }
 
 .calendar-day-header {
     display: flex;
     justify-content: space-between;
-    font-family: inter, sans-serif;
-    color: #044F95;
+    font-family: quicksand, sans-serif;
+    color: #473144;
     padding-top: 10px;
     margin: 0px 10px;
-    border-bottom: solid #044F95 1px;
+    border-bottom: solid #473144 1px;
+}
+
+.week-day {
+    font-weight: bold;
 }
 
 .food-area {
-    font-family: inter, sans-serif;
-    color: #044F95;
-    height: 120px;
-    margin: 10px;
+    font-family: quicksand, sans-serif;
+    color: #473144;
+    height: 85px;
+    margin: 10px 10px 0px 10px;
+}
+
+.special-message {
+    font-family: quicksand, sans-serif;
+    color: #473144;
+    height: auto;
+    margin: 10px 10px 0px 10px;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.calories-area {
+    display: flex;
+    padding-bottom: 0px;
+    font-style: italic;
+}
+
+.calories-number {
+    font-family: quicksand, sans-serif;
+    color: #473144;
+    margin-left: auto;
+    margin-right: 10px;
+    padding-bottom: 0px;
+    font-size: .9em;
+    
+}
+
+.dish-name {
+    font-weight: bold;
+}
+
+.ingredients {
+    text-indent: -10px;
+    padding-left: 10px;
 }
 
 button {
     outline: none;
-    background-color: white;
+    background-color: #BF4342;
     width: 48%;
     height: 50px;
     border-radius: 5px;
-    font-family: inter, sans-serif;
+    font-family: quicksand, sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    color: #044F95;
+    color: #FFFFFF;
     text-align: center;
+    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
 }
 
 button:hover {
     font-weight: 700;
+    cursor: pointer;
 }
 
+/* =========================== Modal Styles =============================== */
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: #7FB069;
+    height: auto;
+    width: 500px;
+    font-family: quicksand, sans-serif;
+    color: #473144;
+    font-size: 1.2em;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-date {
+    padding: 40px 30px 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#days-off-label {
+    margin: 0 0 0 30px;
+}
+
+.modal-days-off-checkbox {
+    padding: 0px 30px 10px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#generate-menu-btn-container {
+    display: flex;
+    padding: 0px 30px;
+}
+
+.modal-allergy-checkbox {
+    padding: 20px 30px 10px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#allergies-message {
+    margin-left: 29px;
+}
+
+.close-button, .close-button-employee {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.75rem;
+    font-weight: bold;
+    width: 50px;
+    height: 1.2em;
+    color: #473144;
+    padding-bottom: 20px;
+    padding-right: 13px;
+
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    pointer-events: all;
+    opacity: 1;
+    z-index: 5;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 150px;
+}
+
+.modal-header h1 {
+    font-size: 1.2em;
+    padding-left: 30px;
+    padding-bottom: 20px;
+}
+
+.modal-body {
+    background-color: #E7D7C1;
+    height: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#menu-btn {
+    background-color: #BF4342;
+    width: 100%;
+    margin: 10px 0px 30px 0px;
+    padding: 10px 0px;
+    height: 1.5em;
+    /* #calendar-entry:invalid::{color red}
+    #calendar-entry:valid::{color #044F95} */
+}
+
+.employee-modal-section-title {
+    margin: 10px 20px 0px 30px;
+    border-bottom: solid #473144 1px;
+}
+
+#allergies-btn-container {
+    display:flex;
+    padding: 0 30px;
+}
+
+#allergies-btn {
+    width: 100%;
+    margin: 10px 0px 30px 0px;
+    padding: 10px 0px;
+    height: 1.5em;
+}
 
 
 
@@ -108,14 +305,21 @@ button:hover {
     Style adjustments for tablets 
     TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
 
+    h1 {
+        font-size: 2.2em;
+    }
+
+    #dishes-icon {
+        height: 30px;
+    }
+    
     nav {
         width: 50%;
-        background-color: white;
     }
 
     button {
-        background-color: #AFD9FF;
-        font-size: 1.3em;
+        background-color: #BF4342;
+        font-size: 1.5rem;
 
     }
 
@@ -136,6 +340,26 @@ button:hover {
         font-size: 1.3em;
     }
 
+    #employee-modal, #form2 label, .modal h1, .modal-date, .employee-modal-section-title p, .food-area, .calories-number{
+        font-size: 1.5em;
+    }
+
+    .food-area {
+        height: 110px;
+    }
+
+    .calories-area {
+        font-size: .8em;
+    }
+
+    .close-button, .close-button-employee {
+        font-size: 2em;
+    }
+
+    input[type="checkbox"] {
+        zoom: 1.5;
+    }
+
 
 }
 
@@ -150,21 +374,25 @@ button:hover {
     Style adjustments for desktops
     DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD */
 
-button { 
-    font-size: 1.6em;
-}
+    button {
+        font-size: 1.6rem;
+    }
 
     .calendar-day {
-    width: 30%;
-}
+        width: 30%;
+    }
 
-.calendar-day-header {
-    font-size: 1.6em;
-}
+    .calendar-day-header {
+        font-size: 1.6em;
+    }
 
-.food-area {
-    font-size: 1.4em;
-}
+    .food-area, .calories-number {
+        font-size: 1.4em;
+    }
+    
+    .food-area {
+        height: 105px;
+    }
 }
 
 /* ==========================================================================
