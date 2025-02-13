@@ -2,11 +2,11 @@ html {
     color: #222;
     font-size: 1rem;
     line-height: 1.4;
-    }
+}
 
 body {
-    min-width: 250px;
-    background-image: url("/images/background-stock-photo.jpg");
+    min-width: 350px;
+    background-color: #FFFFFF;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -22,36 +22,40 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
-    color: #473144;
-    background-color: #7FB069;
+    color: #FFFFFF;
+    background-color: #473144;
     font-family: quicksand, sans-serif;
     padding-top: 100px;
+    padding-bottom: 0px;
     position: relative;
+    font-size: 1rem;
 }
 
 h1 {
     font-family: quicksand, sans-serif;
     font-size: 1.5em;
     padding-left: 30px;
+    padding-bottom: 20px;
 }
 
-#dishes-icon {
+#logo {
     width: auto;
-    height: 20px;
-    color: #8C1C13;
+    height: 60px;
+    /* color: #8C1C13; */
     margin-right: 30px;
-    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
 }
 
 nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     padding: 20px 30px 20px 30px;
+    background-color: #FFFFFF;
 }
 
 .nav-button {
-    filter: drop-shadow(0px 3px 2px rgb(68, 68, 68));
+    filter: drop-shadow(0px 3px 2px #908f8f);
 }
 
 #week-display {
@@ -63,7 +67,8 @@ nav {
 .calendar-day {
     position: relative;
     border-radius: 5px;
-    background-color: #E7D7C1;
+    background-color: #F8EDEB;
+    ;
     color: #473144;
     height: 160px;
     margin-bottom: 20px;
@@ -112,7 +117,7 @@ nav {
     margin-right: 10px;
     padding-bottom: 0px;
     font-size: .9em;
-    
+
 }
 
 .dish-name {
@@ -126,17 +131,22 @@ nav {
 
 button {
     outline: none;
-    background-color: #BF4342;
+    background-color: #FCAF58;
     width: 48%;
     height: 50px;
     border-radius: 5px;
     font-family: quicksand, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 18px;
     line-height: 22px;
     color: #FFFFFF;
     text-align: center;
-    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
+}
+
+#menu-btn,
+#allergies-btn {
+    filter: drop-shadow(0px 3px 2px #908f8f);
+
 }
 
 button:hover {
@@ -146,6 +156,10 @@ button:hover {
 
 /* =========================== Modal Styles =============================== */
 
+#schedule-modal-header,
+#employee-modal-header {
+    color: #FFFFFF;
+}
 
 .modal {
     position: fixed;
@@ -156,12 +170,12 @@ button:hover {
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
-    background-color: #7FB069;
+    background-color: #473144;
     height: auto;
     width: 500px;
     font-family: quicksand, sans-serif;
     color: #473144;
-    font-size: 1.2em;
+    font-size: .9rem;
     max-width: 80%;
 }
 
@@ -201,7 +215,7 @@ button:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -209,7 +223,8 @@ button:hover {
     margin-left: 29px;
 }
 
-.close-button, .close-button-employee {
+.close-button,
+.close-button-employee {
     cursor: pointer;
     border: none;
     outline: none;
@@ -218,10 +233,9 @@ button:hover {
     font-weight: bold;
     width: 50px;
     height: 1.2em;
-    color: #473144;
+    color: #FFFFFF;
     padding-bottom: 20px;
     padding-right: 13px;
-
 }
 
 #overlay {
@@ -246,17 +260,17 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    height: 150px;
+    height: 110px;
 }
 
 .modal-header h1 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     padding-left: 30px;
     padding-bottom: 20px;
 }
 
 .modal-body {
-    background-color: #E7D7C1;
+    background-color: #F8EDEB;
     height: auto;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -266,7 +280,7 @@ button:hover {
 }
 
 #menu-btn {
-    background-color: #BF4342;
+    background-color: #FCAF58;
     width: 100%;
     margin: 10px 0px 30px 0px;
     padding: 10px 0px;
@@ -281,7 +295,7 @@ button:hover {
 }
 
 #allergies-btn-container {
-    display:flex;
+    display: flex;
     padding: 0 30px;
 }
 
@@ -312,13 +326,18 @@ button:hover {
     #dishes-icon {
         height: 30px;
     }
-    
+
     nav {
         width: 50%;
+        background-color: #473144;
+    }
+
+    .nav-button {
+        filter: drop-shadow(0px 0px 0px #908f8f);
     }
 
     button {
-        background-color: #BF4342;
+        background-color: #FCAF58;
         font-size: 1.5rem;
 
     }
@@ -340,7 +359,13 @@ button:hover {
         font-size: 1.3em;
     }
 
-    #employee-modal, #form2 label, .modal h1, .modal-date, .employee-modal-section-title p, .food-area, .calories-number{
+    #employee-modal,
+    #form2 label,
+    .modal h1,
+    .modal-date,
+    .employee-modal-section-title p,
+    .food-area,
+    .calories-number {
         font-size: 1.5em;
     }
 
@@ -352,7 +377,8 @@ button:hover {
         font-size: .8em;
     }
 
-    .close-button, .close-button-employee {
+    .close-button,
+    .close-button-employee {
         font-size: 2em;
     }
 
@@ -386,10 +412,11 @@ button:hover {
         font-size: 1.6em;
     }
 
-    .food-area, .calories-number {
+    .food-area,
+    .calories-number {
         font-size: 1.4em;
     }
-    
+
     .food-area {
         height: 105px;
     }
