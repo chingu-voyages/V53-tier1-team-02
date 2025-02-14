@@ -1,39 +1,43 @@
-# voyage-tasks
+# Plate Date
+![Plate Date](./images/logo-for-dark-bg.png)
 
-Your project's `readme` is as important to success as your code. For
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+# Overview 🌎
+Plate Date is a dynamic menu scheduling application that enables managers to create and share weekly menus with employees. The goal of Plate Date is to allow users to seamlessly schedule unique menu items while accounting for different allergies. All dishes are displayed live on the main page with the dates, ingredients, and calories listed.
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point -
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+# Features 🎯
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+  - Front Page 🔭
+    
+    - An intuitive layout with button based features, all seamlessly integrated into a SPA (single-page-application) design. 🕹️
+   
+    - A visually represented up-to-date weekly menu. This menu includes dates, menu items, ingredients, and calories. 🚀
 
-> Own it & Make it your Own!
+  - Schedule button 🟢
+    
+    - When clicked the schedule button will open a user window with additonal features
+      -  The date sub-feature allows the user to schedule a week for the weekly menu, if no date is entered a preset week will be                         selected (the current week in the users time zone). 🗓️
+        
+      -  The days off sub-feature will allow the user to select days off on the weekly menu. 📆
+        
+      -  The generate menu button will create a weekly menu with dates and days off (specified in the schedule window), as well as          allergies (specified from the allergies window). All changes will be rendered live on the front screen. ✅
+     
+  - Allergies button 🟢
+    
+    - When clicked the allergies button will open a user window with additional features
+      -  The allergies checkbox sub-feature allows users to select allergies. 🚫 
+      
+      -  The submit button will register the allergies selected and subsequently alter the menu, omitting dishes that conflict with any                   allergies that are submitted. The submit button also auto generates a menu and week date (to the current week) if they are not already           scheduled in the schedule window. ✅
+      
+# Running The Project 🚲
 
-## Team Documents
+[View Application](https://v53-tier1-team-02.netlify.app/)
 
-You may find these helpful as you work together to organize your project.
+# Dependencies 🦾
+  - HTML
+  - CSS
+  - Javascript
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
-
-Meeting Agenda templates (located in the `/docs` directory in this repo):
-
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
-
-## Our Team
-
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team _before_ you start
-coding!
-
+# Our Team 
 
 - Zoheb Tahir (Developer): [GitHub](https://github.com/ZohebTahir)  
 
