@@ -29,7 +29,7 @@ Plate Date is a dynamic menu scheduling application that enables managers to cre
       
 # Running The Project 🚲
 
-Will Add a link here --
+[Live]([https://github.com/ZohebTahir](https://v53-tier1-team-02.netlify.app/))
 
 # Dependencies 🦾
   - HTML
