@@ -1,12 +1,13 @@
 html {
     color: #222;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     line-height: 1.4;
-    }
+}
 
 body {
-    min-width: 250px;
-    background-image: url("/images/background-stock-photo.jpg");
+    min-width: 393px;
+    background-color: #FFFFFF;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -19,39 +20,41 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM */
 
 header {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: baseline;
-    color: #473144;
-    background-color: #7FB069;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: #473144;
     font-family: quicksand, sans-serif;
     padding-top: 100px;
-    position: relative;
+    padding-bottom: 0px;
+    font-size: 1rem;
 }
 
 h1 {
     font-family: quicksand, sans-serif;
-    font-size: 1.5em;
-    padding-left: 30px;
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+    padding-right: 30px;
 }
 
-#dishes-icon {
-    width: auto;
-    height: 20px;
-    color: #8C1C13;
-    margin-right: 30px;
-    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
+#logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     padding: 20px 30px 20px 30px;
+    background-color: #FFFFFF;
 }
 
 .nav-button {
-    filter: drop-shadow(0px 3px 2px rgb(68, 68, 68));
+    filter: drop-shadow(0px 3px 2px #908f8f);
 }
 
 #week-display {
@@ -63,7 +66,8 @@ nav {
 .calendar-day {
     position: relative;
     border-radius: 5px;
-    background-color: #E7D7C1;
+    background-color: #F8EDEB;
+    ;
     color: #473144;
     height: 160px;
     margin-bottom: 20px;
@@ -77,6 +81,7 @@ nav {
     padding-top: 10px;
     margin: 0px 10px;
     border-bottom: solid #473144 1px;
+    font-weight: bold;
 }
 
 .week-day {
@@ -111,8 +116,8 @@ nav {
     margin-left: auto;
     margin-right: 10px;
     padding-bottom: 0px;
-    font-size: .9em;
-    
+    font-size: .9rem;
+
 }
 
 .dish-name {
@@ -126,17 +131,22 @@ nav {
 
 button {
     outline: none;
-    background-color: #BF4342;
+    background-color: #FCAF58;
     width: 48%;
     height: 50px;
     border-radius: 5px;
     font-family: quicksand, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 18px;
     line-height: 22px;
     color: #FFFFFF;
     text-align: center;
-    filter: drop-shadow(0px 3px 2px rgba(68, 68, 68));
+}
+
+#menu-btn,
+#allergies-btn {
+    filter: drop-shadow(0px 3px 2px #908f8f);
+
 }
 
 button:hover {
@@ -145,6 +155,12 @@ button:hover {
 }
 
 /* =========================== Modal Styles =============================== */
+
+#schedule-modal-header,
+#employee-modal-header {
+    color: #FFFFFF;
+}
+
 
 
 .modal {
@@ -156,12 +172,12 @@ button:hover {
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
-    background-color: #7FB069;
+    background-color: #473144;
     height: auto;
     width: 500px;
     font-family: quicksand, sans-serif;
     color: #473144;
-    font-size: 1.2em;
+    font-size: .9rem;
     max-width: 80%;
 }
 
@@ -201,7 +217,7 @@ button:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -209,7 +225,8 @@ button:hover {
     margin-left: 29px;
 }
 
-.close-button, .close-button-employee {
+.close-button,
+.close-button-employee {
     cursor: pointer;
     border: none;
     outline: none;
@@ -217,11 +234,10 @@ button:hover {
     font-size: 1.75rem;
     font-weight: bold;
     width: 50px;
-    height: 1.2em;
-    color: #473144;
+    height: 1.2rem;
+    color: #FFFFFF;
     padding-bottom: 20px;
     padding-right: 13px;
-
 }
 
 #overlay {
@@ -246,17 +262,17 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    height: 150px;
+    height: 110px;
 }
 
 .modal-header h1 {
-    font-size: 1.2em;
+    font-size: 1.5rem;
     padding-left: 30px;
     padding-bottom: 20px;
 }
 
 .modal-body {
-    background-color: #E7D7C1;
+    background-color: #F8EDEB;
     height: auto;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -266,13 +282,11 @@ button:hover {
 }
 
 #menu-btn {
-    background-color: #BF4342;
+    background-color: #FCAF58;
     width: 100%;
     margin: 10px 0px 30px 0px;
     padding: 10px 0px;
-    height: 1.5em;
-    /* #calendar-entry:invalid::{color red}
-    #calendar-entry:valid::{color #044F95} */
+    height: 1.5rem;
 }
 
 .employee-modal-section-title {
@@ -281,7 +295,7 @@ button:hover {
 }
 
 #allergies-btn-container {
-    display:flex;
+    display: flex;
     padding: 0 30px;
 }
 
@@ -289,7 +303,7 @@ button:hover {
     width: 100%;
     margin: 10px 0px 30px 0px;
     padding: 10px 0px;
-    height: 1.5em;
+    height: 1.5rem;
 }
 
 
@@ -305,20 +319,38 @@ button:hover {
     Style adjustments for tablets 
     TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
 
-    h1 {
-        font-size: 2.2em;
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
-    #dishes-icon {
-        height: 30px;
+    #logo {
+        width: 130px;
+        width: 15vw;
+        margin-bottom: 0px;
     }
-    
+
+    h1 {
+        font-size: 1.3rem;
+        font-size: 3vw;
+    }
+
     nav {
         width: 50%;
+        background-color: #473144;
+    }
+
+    .nav-button {
+        filter: drop-shadow(0px 0px 0px #908f8f);
+        font-size: 24px;
+        font-size: 3vw;
     }
 
     button {
-        background-color: #BF4342;
+        background-color: #FCAF58;
         font-size: 1.5rem;
 
     }
@@ -337,23 +369,33 @@ button:hover {
     }
 
     .calendar-day-header {
-        font-size: 1.3em;
+        font-size: 1.3rem;
     }
 
-    #employee-modal, #form2 label, .modal h1, .modal-date, .employee-modal-section-title p, .food-area, .calories-number{
-        font-size: 1.5em;
+    #employee-modal,
+    #form2 label,
+    .modal h1,
+    .modal-date,
+    .employee-modal-section-title p,
+    .food-area {
+        font-size: 1.4rem;
+    }
+
+    .ingredients {
+        font-size: 1.2rem;
     }
 
     .food-area {
         height: 110px;
     }
 
-    .calories-area {
-        font-size: .8em;
+    .calories-number {
+        font-size: 1rem;
     }
 
-    .close-button, .close-button-employee {
-        font-size: 2em;
+    .close-button,
+    .close-button-employee {
+        font-size: 2rem;
     }
 
     input[type="checkbox"] {
@@ -383,13 +425,17 @@ button:hover {
     }
 
     .calendar-day-header {
-        font-size: 1.6em;
+        font-size: 1.6rem;
     }
 
-    .food-area, .calories-number {
-        font-size: 1.4em;
+    .food-area {
+        font-size: 1.3rem;
     }
-    
+
+    .calories-number {
+        font-size: 1rem;
+    }
+
     .food-area {
         height: 105px;
     }
@@ -407,6 +453,7 @@ button:hover {
 [hidden] {
     display: none !important;
 }
+
 
 
 /*
