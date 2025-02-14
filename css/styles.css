@@ -1,11 +1,12 @@
 html {
     color: #222;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     line-height: 1.4;
 }
 
 body {
-    min-width: 350px;
+    min-width: 393px;
     background-color: #FFFFFF;
     background-size: cover;
     background-repeat: no-repeat;
@@ -19,30 +20,28 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM */
 
 header {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     color: #FFFFFF;
     background-color: #473144;
     font-family: quicksand, sans-serif;
     padding-top: 100px;
     padding-bottom: 0px;
-    position: relative;
     font-size: 1rem;
 }
 
 h1 {
     font-family: quicksand, sans-serif;
-    font-size: 1.5em;
-    padding-left: 30px;
+    font-size: 1.5rem;
     padding-bottom: 20px;
+    padding-right: 30px;
 }
 
 #logo {
-    width: auto;
-    height: 60px;
-    /* color: #8C1C13; */
-    margin-right: 30px;
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 nav {
@@ -82,6 +81,7 @@ nav {
     padding-top: 10px;
     margin: 0px 10px;
     border-bottom: solid #473144 1px;
+    font-weight: bold;
 }
 
 .week-day {
@@ -116,7 +116,7 @@ nav {
     margin-left: auto;
     margin-right: 10px;
     padding-bottom: 0px;
-    font-size: .9em;
+    font-size: .9rem;
 
 }
 
@@ -160,6 +160,8 @@ button:hover {
 #employee-modal-header {
     color: #FFFFFF;
 }
+
+
 
 .modal {
     position: fixed;
@@ -232,7 +234,7 @@ button:hover {
     font-size: 1.75rem;
     font-weight: bold;
     width: 50px;
-    height: 1.2em;
+    height: 1.2rem;
     color: #FFFFFF;
     padding-bottom: 20px;
     padding-right: 13px;
@@ -264,7 +266,7 @@ button:hover {
 }
 
 .modal-header h1 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     padding-left: 30px;
     padding-bottom: 20px;
 }
@@ -284,9 +286,7 @@ button:hover {
     width: 100%;
     margin: 10px 0px 30px 0px;
     padding: 10px 0px;
-    height: 1.5em;
-    /* #calendar-entry:invalid::{color red}
-    #calendar-entry:valid::{color #044F95} */
+    height: 1.5rem;
 }
 
 .employee-modal-section-title {
@@ -303,7 +303,7 @@ button:hover {
     width: 100%;
     margin: 10px 0px 30px 0px;
     padding: 10px 0px;
-    height: 1.5em;
+    height: 1.5rem;
 }
 
 
@@ -319,12 +319,23 @@ button:hover {
     Style adjustments for tablets 
     TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT */
 
-    h1 {
-        font-size: 2.2em;
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
-    #dishes-icon {
-        height: 30px;
+    #logo {
+        width: 130px;
+        width: 15vw;
+        margin-bottom: 0px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        font-size: 3vw;
     }
 
     nav {
@@ -334,6 +345,8 @@ button:hover {
 
     .nav-button {
         filter: drop-shadow(0px 0px 0px #908f8f);
+        font-size: 24px;
+        font-size: 3vw;
     }
 
     button {
@@ -356,7 +369,7 @@ button:hover {
     }
 
     .calendar-day-header {
-        font-size: 1.3em;
+        font-size: 1.3rem;
     }
 
     #employee-modal,
@@ -364,22 +377,25 @@ button:hover {
     .modal h1,
     .modal-date,
     .employee-modal-section-title p,
-    .food-area,
-    .calories-number {
-        font-size: 1.5em;
+    .food-area {
+        font-size: 1.4rem;
+    }
+
+    .ingredients {
+        font-size: 1.2rem;
     }
 
     .food-area {
         height: 110px;
     }
 
-    .calories-area {
-        font-size: .8em;
+    .calories-number {
+        font-size: 1rem;
     }
 
     .close-button,
     .close-button-employee {
-        font-size: 2em;
+        font-size: 2rem;
     }
 
     input[type="checkbox"] {
@@ -409,12 +425,15 @@ button:hover {
     }
 
     .calendar-day-header {
-        font-size: 1.6em;
+        font-size: 1.6rem;
     }
 
-    .food-area,
+    .food-area {
+        font-size: 1.3rem;
+    }
+
     .calories-number {
-        font-size: 1.4em;
+        font-size: 1rem;
     }
 
     .food-area {
@@ -434,6 +453,7 @@ button:hover {
 [hidden] {
     display: none !important;
 }
+
 
 
 /*
